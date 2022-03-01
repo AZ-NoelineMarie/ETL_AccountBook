@@ -1,2 +1,1 @@
-date;codeBoutique;piece;numCompte;libelle;debit;credit
-01/12/2021;STR;;707000;Vte comptoir 01/12/2021;0;5753,3500000000004
+codeBoutique;date;piece;numCompte;libelle;debit;credit
