@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="779"
-  DTS:VersionGUID="{D54D8CEB-0362-4C4B-8FF5-EDFE88491381}">
+  DTS:VersionBuild="782"
+  DTS:VersionGUID="{BE63C539-2E4B-4672-916F-BEF3FD246CD9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -482,19 +482,19 @@ HDR=YES\";"</DTS:PropertyExpression>
                       cachedLength="25"
                       cachedName="numCompte"
                       externalMetadataColumnId="Package\envoi vers datawarehouse\Send to dbo pos import X3.Inputs[Entrée de destination OLE DB].ExternalColumns[numCompte]"
-                      lineageId="Package\envoi vers datawarehouse\209:invalid" />
+                      lineageId="Package\envoi vers datawarehouse\154:invalid" />
                     <inputColumn
                       refId="Package\envoi vers datawarehouse\Send to dbo pos import X3.Inputs[Entrée de destination OLE DB].Columns[sumcredit]"
                       cachedDataType="r8"
                       cachedName="sumcredit"
                       externalMetadataColumnId="Package\envoi vers datawarehouse\Send to dbo pos import X3.Inputs[Entrée de destination OLE DB].ExternalColumns[credit]"
-                      lineageId="Package\envoi vers datawarehouse\210:invalid" />
+                      lineageId="Package\envoi vers datawarehouse\155:invalid" />
                     <inputColumn
                       refId="Package\envoi vers datawarehouse\Send to dbo pos import X3.Inputs[Entrée de destination OLE DB].Columns[sumdebit]"
                       cachedDataType="r8"
                       cachedName="sumdebit"
                       externalMetadataColumnId="Package\envoi vers datawarehouse\Send to dbo pos import X3.Inputs[Entrée de destination OLE DB].ExternalColumns[debit]"
-                      lineageId="Package\envoi vers datawarehouse\211:invalid" />
+                      lineageId="Package\envoi vers datawarehouse\156:invalid" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2410,7 +2410,7 @@ namespace SC_6ded6ef434a746b3ad17d597d433a4f8.Properties {
     <msb:CodeName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:DisplayName>
-    <msb:ProjectId>{21707E55-EAD2-4259-A2A5-AABD556857A1}</msb:ProjectId>
+    <msb:ProjectId>{7F8713AE-C359-4E5F-8F1B-F8C9A2E8BF5A}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_6ded6ef434a746b3ad17d597d433a4f8.csproj" />
@@ -2615,22 +2615,18 @@ namespace SC_6ded6ef434a746b3ad17d597d433a4f8
             {
                 str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + nbCpt + ";;" + libelle + ";" + SensOp + ";" + strPrice + ";EUR";
             }
-            else if (nbCpt.Contains("531000") || nbCpt.Contains("532000") || nbCpt.Contains("533000") || nbCpt.Contains("580000"))
-            {
-                    if (nbCpt.Contains("531000") || nbCpt.Contains("532000") || nbCpt.Contains("533000"))
-                    {
-                        numOp = "411000";
-                        typeOp = nbCpt.Contains("531000") ? shop + "ESP" : nbCpt.Contains("532000") ? shop + "CHQ" : nbCpt.Contains("533000") ? shop + "CB" : "!UNK!";
-                        
-                        str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";C1;" + numOp + ";" + typeOp + ";" + libelle + ";" + SensOp + ";" + strPrice + ";EUR";
-
-                    }
-                    else if(nbCpt.Contains("580000")) { 
-                        numOp = "467500";
-                        str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + numOp + ";;" + libelle + ";" + 1 + ";" + strPrice + ";EUR";
-                    }    
+            else if (nbCpt.Contains("531000") || nbCpt.Contains("532000") || nbCpt.Contains("533000"))
+            { 
+                  numOp = "411000";
+                  typeOp = nbCpt.Contains("531000") ? shop + "ESP" : nbCpt.Contains("532000") ? shop + "CHQ" : nbCpt.Contains("533000") ? shop + "CB" : "!UNK!";    
+                   str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";C1;" + numOp + ";" + typeOp + ";" + libelle + ";" + SensOp + ";" + strPrice + ";EUR";      
              }
-               
+            else if (nbCpt.Contains("580000"))
+            {
+                numOp = "467500";
+                str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + numOp + ";;" + libelle + ";" + 1 + ";" + strPrice + ";EUR";
+            }
+
             else
             {
              str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + nbCpt + ";;" + libelle + ";" + "2" + ";" + strPrice + ";EUR";
@@ -2658,14 +2654,14 @@ namespace SC_6ded6ef434a746b3ad17d597d433a4f8
                             <arrayElement
                               dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHctHmIAAAAAAAAAAOAAIiALATAAACIAAAAIAAAAAAAA6kEA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJeRH2IAAAAAAAAAAOAAIiALATAAACIAAAAIAAAAAAAAnkEA
 AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJhBAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAExBAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA8CEAAAAgAAAAIgAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAApCEAAAAgAAAAIgAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAYAAAAAYAAAAkAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAIAAAAACAAAAKgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADM
-QQAAAAAAAEgAAAACAAUA+CoAAOgVAAABAAAAAAAAAOBAAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAKgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACA
+QQAAAAAAAEgAAAACAAUArCoAAOgVAAABAAAAAAAAAJRAAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAYAeAAAAAEAABEDbw0AAAYD
 bxEAAAYKA28JAAAGCwNvBwAABmsMA28PAAAGDQkHBggCewEAAARzJQAABhMEAnsBAAAELRACAnsB
 AAAEGFh9AQAABCsOAgJ7AQAABBdYfQEAAAQCewQAAARvGAAABgJ7BAAABBEEbxIAAApvFgAABioG
@@ -2684,7 +2680,7 @@ oiUaDwIoKwAACgoSACgpAAAKoigsAAAKfQkAAAQCBX0KAAAEAg4GfQsAAAQCBH0MAAAEDgUiAAAA
 ADRQDgUiAACAv1oQBQVy9AAAcG8tAAAKLScFcvwAAHBvLQAACi0aBXIKAQBwby0AAAotDQVyGAEA
 cG8tAAAKLAkCF30PAAAEK00CF30PAAAEK0QFcvQAAHBvLQAACi0nBXL8AABwby0AAAotGgVyCgEA
 cG8tAAAKLQ0FchgBAHBvLQAACiwJAhV9DwAABCsHAhV9DwAABAIPBSguAAAKciYBAHByKgEAcG8v
-AAAKfRAAAAQqAAAAEzAFAEQGAAADAAARci4BAHAKAnsLAAAEFj2RAAAAHwqNHAAAASUWBqIlF3Iw
+AAAKfRAAAAQqAAAAEzAFAPkFAAADAAARci4BAHAKAnsLAAAEFj2RAAAAHwqNHAAAASUWBqIlF3Iw
 AQBwoiUYAnsIAAAEoiUZckABAHCiJRoCfAwAAAQoKwAACgsSASgpAAAKoiUbAnwMAAAEcu4AAHAo
 KgAACqIlHAJ8DAAABCgoAAAKCxIBKCkAAAqiJR1yTAEAcKIlHgJ7CQAABKIlHwlyUAEAcKIoLAAA
 CgoCAnsLAAAEF1h9CwAABAJ7CgAABHL0AABwby0AAAo5kwEAAB8QjRwAAAElFgaiJRdyXgEAcKIl
@@ -2694,130 +2690,130 @@ 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
-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
+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
-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
-AAEAugUAAAIAuwYAAAMAZAUAAAEAugUAAAIAuwYAAAMAZAUAAAEAmQMAAAEAmQMAAAEAaQAAAAIA
-MwEAAAMAugUAAAQAZAUAAAEAEwcAAAIA4gUAAAMABQcAAAQAZAUAAAEAugUAAAEALAgAAAEAmAcA
-AAEAmAcAAAEAegUAAAIArwEAAAMAogcAAAQAKwEAAAUAzgAAAAYAwAQAAAEAmQMJANUFAQARANUF
-BgAZANUFCgApANUFEAAxANUFEAA5ANUFEABBANUFEABJANUFEABRANUFEABZANUFEABhANUFEABp
-ANUFBgChANUFBgDBANUFFQDRANUFBgCRAIIDBgCRAI0DBgCZALkDJQB5ANUFKQB5ALoFMwB5ALsG
-NwCBAOcAOwB5AIoEQACBAMIDRQCBACUASgCBAD0BTwB5ACgIVQB5AFwHVQB5AJkEWQB5AJEEAQDZ
-ANUFEAB5AAgIBgB5AFkHBgCRANUFBgDhAOkGXwCRAM8GZgCBAEkHVQCRAHEAcACZANUFBgBxADAI
-dwDxALkDJQBxALkDewBxAH8FdwDhAC8HgADhAPAGhgD5ALkDJQDhAL0AiwDhAC8HlgABAQMBnAAB
-ATgIpQCpANUFqwDJANUFBgAuAAsAYwEuABMAbAEuABsAiwEuACMAlAEuACsAvQEuADMAvQEuADsA
-vQEuAEMAlAEuAEsAwwEuAFMAvQEuAFsA2gFDAGMAJAIjAWsAJALpAXMAiwEJAnMAiwFhAnsAJAIb
-AGwAkQADAAEABAANAAkADwAKABEAAACBAD8BAAAjBEMBAADaAUcBAABtBEMBAAC6AEsBAAA3BEMB
-AAByBUcBAACCBEMBAAC6AU8BAABbBEMBAAAgAUcBAABFBEMBAAAyAEcBAAAOBEMBAADFBVQBAACP
-AVkBAABsB14BAgAHAAMAAgAIAAUAAgAJAAcAAgAKAAkAAgALAAsAAgAMAA0AAgANAA8AAgAOABEA
-AgAPABMAAgAQABUAAgARABcAAgASABkAAQAWABsAAQAXAB0AAgAoAB8AAgApACEAAQAqACEAAgAr
-ACMABIAAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAALMAigAAAAAADwAAAAAAAAAAAAAA
-vACoBwAAAAAPAAAAAAAAAAAAAAC8AMUHAAAAAAQAAAAAAAAAAAAAALMAogQAAAAAAAAAAAEAAAAw
-BgAAAAAAAABTQ19BREJBMEUyRkM1Q0U0ODUxODMxMEY2QkZBRjJGRTcwMQBHZXRJbnQzMgBzZXRf
-bGlnbmVDQVgzAFNDXzZkZWQ2ZWY0MzRhNzQ2YjNhZDE3ZDU5N2Q0MzNhNGY4ADxNb2R1bGU+AElu
-cHV0SUQAR2V0T3V0cHV0SUQAZ2V0X21vbnRhbnRGAG1zY29ybGliAElucHV0c0ZpbmlzaGVkAE1h
-cmtPdXRwdXRzRmluaXNoZWQAZ2V0X2lkAFJlcGxhY2UAc3RyUHJpY2UAZmx0UHJpY2UAZGVmYXVs
-dEluc3RhbmNlAEdldERvdWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBT
-aW5nbGUAZ2V0X3N0ckxpYmVsbGUAbGliZWxsZQBJbnB1dE5hbWUAR2V0RGF0ZVRpbWUATWljcm9z
-b2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQBy
-ZXNvdXJjZUN1bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAZHREYXRlAGdldF9kdGRhdGUA
-RWRpdG9yQnJvd3NhYmxlU3RhdGUAZ2V0X3N0ckNvbXB0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJp
-YnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRp
-dG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFk
-ZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJh
-dGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVs
-YXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJp
-Z2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFzc2Vt
-Ymx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQcmVFeGVj
-dXRlAFBvc3RFeGVjdXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcA
-R2V0U3RyaW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19BREJBMEUyRkM1Q0U0ODUxODMxMEY2
-QkZBRjJGRTcwMS5kbGwAc2V0X2xpZ25lQ0FYM19Jc051bGwAZ2V0X21vbnRhbnRGX0lzTnVsbABn
-ZXRfaWRfSXNOdWxsAGdldF9zdHJMaWJlbGxlX0lzTnVsbABnZXRfZHRkYXRlX0lzTnVsbABnZXRf
-c3RyQ29tcHRlX0lzTnVsbABnZXRfc3RyU2hvcF9Jc051bGwAU2V0TnVsbABzZXRfSXRlbQBTeXN0
-ZW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgB0b3RhbE9wZXJhdGlvbgBTeXN0ZW0uQ29uZmlndXJh
-dGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBJbnZhbGlkT3BlcmF0
-aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AdHlwZU9wAG51bU9wAFNl
-bnNPcABPdXRwdXROYW1lTWFwAE91dHB1dE1hcABnZXRfc3RyU2hvcABzaG9wAGdldF9ZZWFyAFNv
-cnRpZTBCdWZmZXIARW50csOpZTBCdWZmZXIAUGlwZWxpbmVCdWZmZXIAU2NyaXB0QnVmZmVyAGdl
-dF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAE91dHB1dElEcwBTeXN0ZW0uRGlhZ25vc3Rp
-Y3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDXzZk
-ZWQ2ZWY0MzRhNzQ2YjNhZDE3ZDU5N2Q0MzNhNGY4LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291
-cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ182ZGVkNmVmNDM0YTc0NmIzYWQxN2Q1OTdkNDMzYTRmOC5Q
-cm9wZXJ0aWVzAFZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMA
-U2V0dGluZ3MARXF1YWxzAENvbnRhaW5zAENvbm5lY3Rpb25zAEJ1ZmZlcnMARmluaXNoT3V0cHV0
-cwBDcmVhdGVOZXdPdXRwdXRSb3dzAENvbmNhdABMaWduZUZvcm1hdABPYmplY3QAZ2V0X0VuZE9m
-Um93c2V0AFNldEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29t
-cG9uZW50AFNjcmlwdENvbXBvbmVudABuYkNwdABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0
-AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AEVudHLDqWUwX1Byb2Nlc3NJbnB1dABQ
-cmltZU91dHB1dABBZGRSb3cARW50csOpZTBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAZ2V0X0Rh
-eQBnZXRfQXNzZW1ibHkAAAAAAIDDTABhACAAcAByAG8AcAByAGkA6QB0AOkAIABJAHMATgB1AGwA
-bAAgAG4AZQAgAHAAZQB1AHQAIABwAGEAcwAgAHAAcgBlAG4AZAByAGUAIABsAGEAIAB2AGEAbABl
-AHUAcgAgAEYAYQBsAHMAZQAuACAAQQBmAGYAZQBjAHQAZQB6ACAAcABsAHUAdAD0AHQAIAB1AG4A
-ZQAgAHYAYQBsAGUAdQByACAA4AAgAGwAYQAgAGMAbwBsAG8AbgBuAGUALgABEUUAbgB0AHIA6QBl
-ACAAMAABEVMAbwByAHQAaQBlACAAMAAAAyAAAAVNAE0AAAc3ADAANwAADTQANAA1ADcAMQAzAAAN
-NAA0ADUANwAxADUAAA00ADQANQA3ADEANgAAAywAAAMuAAABAA9HADsARgBBAEMAOwA7AAALOwBW
-AFQARQA7AAADOwAADTsARQBVAFIADQAKAAAFRAA7AAAFOwA7AAAFQQA7AAAnOwBBAFgAMQA7ADEA
-NQAwADIAOwBBAFgAMgA7ADsAQQBYADMAOwAAHzsAOwA7ADsAOwA7ADsAOwA7ADsAOwA7ADsAMAA7
-AAAJOwBFAFUAUgAADTUAMwAxADAAMAAwAAANNQAzADIAMAAwADAAAA01ADMAMwAwADAAMAAADTUA
-OAAwADAAMAAwAAANNAAxADEAMAAwADAAAAshAFUATgBLACEAAAVDAEIAAAdDAEgAUQAAB0UAUwBQ
-AAAJOwBDADEAOwAADTQANgA3ADUAMAAwAAAHOwAyADsAAHFTAEMAXwA2AGQAZQBkADYAZQBmADQA
-MwA0AGEANwA0ADYAYgAzAGEAZAAxADcAZAA1ADkANwBkADQAMwAzAGEANABmADgALgBQAHIAbwBw
-AGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAOBloo8drixBnTrNVS4rHgQABCABAQgD
-IAABBSABARERBCABAQ4FIAEBEV0JBwUODgwRORIgAyAADgkgAwESQR0IEkUDBhJBAwYdCAQgAQ0I
-BCABAggEIAEOCAQgAQgIBSABETkIAyAAAgUgAgEIHAYgAgIOEXUFIAEdCAgDBwEIBgACCBJFDgMg
-AAgEIAEODgUAAQ4dDgQgAQIOBSACDg4OBAcCDggFAAIODg4IAAESgIERgIUFIAASgIkHIAIBDhKA
-iQi3elxWGTTgiQiJhF3NgIDMkQIGCAMGEhgDBhIcAwYSEAMGEkkCBg4DBhE5AwYSVQMGElkDBhIo
-BSABARIMAyAADQQgABE5BCABAQIJIAQBCA4SQRJFCyAEAQgdCB0SQRJFBSABARJJCiAGAQ4ROQ4O
-DAgEAAASVQQAABJZBQABARJZBAAAEigDAAABAygADQMoAAIDKAAOAygACAQoABE5BAgAElUECAAS
-WQQIABIoCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgB
-ACNTQ182ZGVkNmVmNDM0YTc0NmIzYWQxN2Q1OTdkNDMzYTRmOAAABQEAAAAAFgEAEUNvcHlyaWdo
-dCBAICAyMDIyAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rp
-c3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwQBAAAAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0
-ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBD
-dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJl
-c291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAMBBAAAAAAAA
-AAAAANpBAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMQQAAAAAAAAAAAAAAAF9Db3JEbGxNYWlu
-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
+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
+AIYAKAhVAAUAtSEAAAAAhgBcB1UABQDuIAAAAACGGNUFKQAFAL0hAAAAAIYILgAQAAgAxyEAAAAA
+hggKBPoACQDeIQAAAACGAAgIBgAKAOYhAAAAAIYAWQcGAAoAtSEAAAAAhgBcB1UACgDuIQAAAACG
+GNUFBgAKABAiAAAAAMYA7wf/AAoA5CAAAAAAxgENBwYADgBrIgAAAACBAKIABgAOAIgiAAAAAMYA
+/AcJAQ4A5CAAAAAAxgEbBwYAEgDRIgAAAADGAeYH6wASAOQgAAAAAMYBDwjrABMA5CIAAAAAhhjV
+BRUBFADzIgAAAACGGNUFFQEVAAQjAAAAAIYY1QUbARYASCQAAAAAxgC5AyUAHABNKgAAAACDGNUF
+BgAcAFUqAAAAAJMIwQUmARwAgSoAAAAAkwhvASsBHACIKgAAAACTCHsBMAEcAJAqAAAAAJYIaAc2
+AR0AlyoAAAAAhhjVBQYAHQCfKgAAAACRGNsFOwEdAAAAAQAsCAAAAQC6BQAAAgC7BgAAAwBkBQAA
+AQC6BQAAAgC7BgAAAwBkBQAAAQCZAwAAAQCZAwAAAQBpAAAAAgAzAQAAAwC6BQAABABkBQAAAQAT
+BwAAAgDiBQAAAwAFBwAABABkBQAAAQC6BQAAAQAsCAAAAQCYBwAAAQCYBwAAAQB6BQAAAgCvAQAA
+AwCiBwAABAArAQAABQDOAAAABgDABAAAAQCZAwkA1QUBABEA1QUGABkA1QUKACkA1QUQADEA1QUQ
+ADkA1QUQAEEA1QUQAEkA1QUQAFEA1QUQAFkA1QUQAGEA1QUQAGkA1QUGAKEA1QUGAMEA1QUVANEA
+1QUGAJEAggMGAJEAjQMGAJkAuQMlAHkA1QUpAHkAugUzAHkAuwY3AIEA5wA7AHkAigRAAIEAwgNF
+AIEAJQBKAIEAPQFPAHkAKAhVAHkAXAdVAHkAmQRZAHkAkQQBANkA1QUQAHkACAgGAHkAWQcGAJEA
+1QUGAOEA6QZfAJEAzwZmAIEASQdVAJEAcQBwAJkA1QUGAHEAMAh3APEAuQMlAHEAuQN7AHEAfwV3
+AOEALweAAOEA8AaGAPkAuQMlAOEAvQCLAOEALweWAAEBAwGcAAEBOAilAKkA1QWrAMkA1QUGAC4A
+CwBjAS4AEwBsAS4AGwCLAS4AIwCUAS4AKwC9AS4AMwC9AS4AOwC9AS4AQwCUAS4ASwDDAS4AUwC9
+AS4AWwDaAUMAYwAkAiMBawAkAukBcwCLAQkCcwCLAWECewAkAhsAbACRAAMAAQAEAA0ACQAPAAoA
+EQAAAIEAPwEAACMEQwEAANoBRwEAAG0EQwEAALoASwEAADcEQwEAAHIFRwEAAIIEQwEAALoBTwEA
+AFsEQwEAACABRwEAAEUEQwEAADIARwEAAA4EQwEAAMUFVAEAAI8BWQEAAGwHXgECAAcAAwACAAgA
+BQACAAkABwACAAoACQACAAsACwACAAwADQACAA0ADwACAA4AEQACAA8AEwACABAAFQACABEAFwAC
+ABIAGQABABYAGwABABcAHQACACgAHwACACkAIQABACoAIQACACsAIwAEgAAAAQAAAAAAAAAAAAAA
+AAABAAAABAAAAAAAAAAAAAAAswCKAAAAAAAPAAAAAAAAAAAAAAC8AKgHAAAAAA8AAAAAAAAAAAAA
+ALwAxQcAAAAABAAAAAAAAAAAAAAAswCiBAAAAAAAAAAAAQAAADAGAAAAAAAAAFNDX0FEQkEwRTJG
+QzVDRTQ4NTE4MzEwRjZCRkFGMkZFNzAxAEdldEludDMyAHNldF9saWduZUNBWDMAU0NfNmRlZDZl
+ZjQzNGE3NDZiM2FkMTdkNTk3ZDQzM2E0ZjgAPE1vZHVsZT4ASW5wdXRJRABHZXRPdXRwdXRJRABn
+ZXRfbW9udGFudEYAbXNjb3JsaWIASW5wdXRzRmluaXNoZWQATWFya091dHB1dHNGaW5pc2hlZABn
+ZXRfaWQAUmVwbGFjZQBzdHJQcmljZQBmbHRQcmljZQBkZWZhdWx0SW5zdGFuY2UAR2V0RG91Ymxl
+AFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAFNpbmdsZQBnZXRfc3RyTGliZWxs
+ZQBsaWJlbGxlAElucHV0TmFtZQBHZXREYXRlVGltZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5Q
+aXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBBcHBs
+aWNhdGlvblNldHRpbmdzQmFzZQBkdERhdGUAZ2V0X2R0ZGF0ZQBFZGl0b3JCcm93c2FibGVTdGF0
+ZQBnZXRfc3RyQ29tcHRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNl
+ckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1
+dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJn
+ZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2Vt
+Ymx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBB
+c3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1Nj
+cmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRl
+AFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAdmFs
+dWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBHZXRTdHJpbmcAU3lzdGVtLkNv
+bXBvbmVudE1vZGVsAFNDX0FEQkEwRTJGQzVDRTQ4NTE4MzEwRjZCRkFGMkZFNzAxLmRsbABzZXRf
+bGlnbmVDQVgzX0lzTnVsbABnZXRfbW9udGFudEZfSXNOdWxsAGdldF9pZF9Jc051bGwAZ2V0X3N0
+ckxpYmVsbGVfSXNOdWxsAGdldF9kdGRhdGVfSXNOdWxsAGdldF9zdHJDb21wdGVfSXNOdWxsAGdl
+dF9zdHJTaG9wX0lzTnVsbABTZXROdWxsAHNldF9JdGVtAFN5c3RlbQByZXNvdXJjZU1hbgBTY3Jp
+cHRNYWluAHRvdGFsT3BlcmF0aW9uAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxp
+emF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24AU3RyaW5n
+Q29tcGFyaXNvbgBDdWx0dXJlSW5mbwB0eXBlT3AAbnVtT3AAU2Vuc09wAE91dHB1dE5hbWVNYXAA
+T3V0cHV0TWFwAGdldF9zdHJTaG9wAHNob3AAZ2V0X1llYXIAU29ydGllMEJ1ZmZlcgBFbnRyw6ll
+MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgAu
+Y3RvcgAuY2N0b3IAT3V0cHV0SURzAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5D
+b21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU0NfNmRlZDZlZjQzNGE3NDZiM2FkMTdk
+NTk3ZDQzM2E0ZjguUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVz
+AFNDXzZkZWQ2ZWY0MzRhNzQ2YjNhZDE3ZDU5N2Q0MzNhNGY4LlByb3BlcnRpZXMAVmFyaWFibGVz
+AEJ1ZmZlckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29u
+dGFpbnMAQ29ubmVjdGlvbnMAQnVmZmVycwBGaW5pc2hPdXRwdXRzAENyZWF0ZU5ld091dHB1dFJv
+d3MAQ29uY2F0AExpZ25lRm9ybWF0AE9iamVjdABnZXRfRW5kT2ZSb3dzZXQAU2V0RW5kT2ZSb3dz
+ZXQAZ2V0X0RlZmF1bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29tcG9u
+ZW50AG5iQ3B0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuVHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZl
+ci5QaXBlbGluZUhvc3QARW50csOpZTBfUHJvY2Vzc0lucHV0AFByaW1lT3V0cHV0AEFkZFJvdwBF
+bnRyw6llMF9Qcm9jZXNzSW5wdXRSb3cATmV4dFJvdwBnZXRfRGF5AGdldF9Bc3NlbWJseQAAAAAA
+gMNMAGEAIABwAHIAbwBwAHIAaQDpAHQA6QAgAEkAcwBOAHUAbABsACAAbgBlACAAcABlAHUAdAAg
+AHAAYQBzACAAcAByAGUAbgBkAHIAZQAgAGwAYQAgAHYAYQBsAGUAdQByACAARgBhAGwAcwBlAC4A
+IABBAGYAZgBlAGMAdABlAHoAIABwAGwAdQB0APQAdAAgAHUAbgBlACAAdgBhAGwAZQB1AHIAIADg
+ACAAbABhACAAYwBvAGwAbwBuAG4AZQAuAAERRQBuAHQAcgDpAGUAIAAwAAERUwBvAHIAdABpAGUA
+IAAwAAADIAAABU0ATQAABzcAMAA3AAANNAA0ADUANwAxADMAAA00ADQANQA3ADEANQAADTQANAA1
+ADcAMQA2AAADLAAAAy4AAAEAD0cAOwBGAEEAQwA7ADsAAAs7AFYAVABFADsAAAM7AAANOwBFAFUA
+UgANAAoAAAVEADsAAAU7ADsAAAVBADsAACc7AEEAWAAxADsAMQA1ADAAMgA7AEEAWAAyADsAOwBB
+AFgAMwA7AAAfOwA7ADsAOwA7ADsAOwA7ADsAOwA7ADsAOwAwADsAAAk7AEUAVQBSAAANNQAzADEA
+MAAwADAAAA01ADMAMgAwADAAMAAADTUAMwAzADAAMAAwAAANNAAxADEAMAAwADAAAAshAFUATgBL
+ACEAAAVDAEIAAAdDAEgAUQAAB0UAUwBQAAAJOwBDADEAOwAADTUAOAAwADAAMAAwAAANNAA2ADcA
+NQAwADAAAAc7ADIAOwAAcVMAQwBfADYAZABlAGQANgBlAGYANAAzADQAYQA3ADQANgBiADMAYQBk
+ADEANwBkADUAOQA3AGQANAAzADMAYQA0AGYAOAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUA
+cwBvAHUAcgBjAGUAcwAAex+odN4DAEqsxF6CM5AOBgAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
+XQkHBQ4ODBE5EiADIAAOCSADARJBHQgSRQMGEkEDBh0IBCABDQgEIAECCAQgAQ4IBCABCAgFIAER
+OQgDIAACBSACAQgcBiACAg4RdQUgAR0ICAMHAQgGAAIIEkUOAyAACAQgAQ4OBQABDh0OBCABAg4F
+IAIODg4EBwIOCAUAAg4ODggAARKAgRGAhQUgABKAiQcgAgEOEoCJCLd6XFYZNOCJCImEXc2AgMyR
+AgYIAwYSGAMGEhwDBhIQAwYSSQIGDgMGETkDBhJVAwYSWQMGEigFIAEBEgwDIAANBCAAETkEIAEB
+AgkgBAEIDhJBEkULIAQBCB0IHRJBEkUFIAEBEkkKIAYBDhE5Dg4MCAQAABJVBAAAElkFAAEBElkE
+AAASKAMAAAEDKAANAygAAgMoAA4DKAAIBCgAETkECAASVQQIABJZBAgAEigIAQAIAAAAAAAeAQAB
+AFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDXzZkZWQ2ZWY0MzRhNzQ2
+YjNhZDE3ZDU5N2Q0MzNhNGY4AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjIAAEkBABouTkVU
+RnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFt
+ZXdvcmsgNC43BAEAAAAAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3Vy
+Y2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNv
+dXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAdEEAAAAAAAAAAAAAjkEAAAAgAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAIBBAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8l
+ACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAA
 AAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAA
 AOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+
 AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBh
@@ -2844,7 +2840,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAADsMQAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAACgMQAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3766,2495 +3762,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:ValueIndex="0"
           DTS:VariableName="User::nameFile" />
       </DTS:ForEachVariableMappings>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\format X3 from BookAccount"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:Disabled="True"
-      DTS:DTSID="{4DF2DF9C-F39F-4774-ABAF-D3489AE186FB}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="format X3 from BookAccount"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\format X3 from BookAccount\Add New Columns"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="Add New Columns"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée]"
-                  description="Entrée de la transformation de colonnes dérivées"
-                  name="Entrée de colonne dérivée">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée].Columns[strlibelle]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="strlibelle"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[UPPER](#{Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">UPPER(strlibelle)</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée].Columns[sumCredit]"
-                      cachedDataType="r8"
-                      cachedName="sumCredit"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumCredit]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée].Columns[sumDebit]"
-                      cachedDataType="r8"
-                      cachedName="sumDebit"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumDebit]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée]"
-                  description="Sortie par défaut de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[montantF]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[montantF]"
-                      name="montantF"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">#{Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumDebit]} - #{Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumCredit]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">sumDebit - sumCredit</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[strShop]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="3"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[strShop]"
-                      name="strShop"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">@[User::strShop]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">@[User::strShop]</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie d'erreur de colonne dérivée]"
-                  description="Sortie d'erreur de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Composant Script"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Inclut et exécute un code de script personnalisé. Par exemple, appliquez une règle d'entreprise qui limite la plage des valeurs valides dans une colonne « revenus » ou ajoutez des valeurs dans deux colonnes et calculez la moyenne de la somme.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;12"
-              description="Inclut et exécute un code de script personnalisé. Par exemple, appliquez une règle d'entreprise qui limite la plage des valeurs valides dans une colonne « revenus » ou ajoutez des valeurs dans deux colonnes et calculez la moyenne de la somme."
-              name="Composant Script"
-              version="12">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Stocke le code source du composant"
-                  isArray="true"
-                  name="SourceCode"
-                  state="cdata">
-                  <arrayElements
-                    arrayElementCount="33">
-                    <arrayElement
-                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-*  Microsoft SQL Server Integration Services component wrapper
-*  This module defines the base class for your component
-*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
-
-using System;
-using System.Data;
-using Microsoft.SqlServer.Dts.Pipeline;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-using Microsoft.SqlServer.Dts.Runtime.Wrapper;
-
-public class UserComponent: ScriptComponent
-{
-    public Connections Connections;
-    public Variables Variables;
-    public UserComponent()
-    {
-        Connections = new Connections(this);
-        Variables = new Variables(this);
-    }
-
-    public Sortie0Buffer Sortie0Buffer;
-
-    int InputsFinished = 0;
-
-    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
-    {
-
-        if (InputName.Equals(@"Entrée 0", StringComparison.Ordinal))
-        {
-            Entrée0_ProcessInput(new Entrée0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
-        }
-
-        if (Buffer.EndOfRowset)
-        {
-            InputsFinished = InputsFinished + 1;
-            if (InputsFinished == 1)
-            {
-                FinishOutputs();
-                MarkOutputsFinished();
-            }
-        }
-
-    }
-
-    public virtual void FinishOutputs()
-    {
-    }
-
-    private void MarkOutputsFinished()
-    {
-
-        if (null != Sortie0Buffer)
-        {
-            Sortie0Buffer.SetEndOfRowset();
-            Sortie0Buffer = null;
-        }
-
-    }
-
-    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
-    {
-       for(int Idx = 0; Idx < Outputs; Idx++)
-       {
-            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Sortie 0"))
-            {
-                Sortie0Buffer = new Sortie0Buffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
-            }
-        }
-
-        CreateNewOutputRows();
-
-    }
-
-    public virtual void CreateNewOutputRows()
-    {
-    }
-
-    public virtual void Entrée0_ProcessInput(Entrée0Buffer Buffer)
-    {
-        while (Buffer.NextRow())
-        {
-            Entrée0_ProcessInputRow(Buffer);
-        }
-    }
-
-    public virtual void Entrée0_ProcessInputRow(Entrée0Buffer Row)
-    {
-    }
-
-}
-
-public class Connections
-{
-    ScriptComponent ParentComponent;
-
-    public Connections(ScriptComponent Component)
-    {
-        ParentComponent = Component;
-    }
-
-}
-
-public class Variables
-{
-    ScriptComponent ParentComponent;
-
-    public Variables(ScriptComponent Component)
-    {
-        ParentComponent = Component;
-    }
-
-}
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-</root>]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
-/* The Script Component allows you to perform virtually any operation that can be accomplished in
- * a .Net application within the context of an Integration Services data flow.
- *
- * Expand the other regions which have "Help" prefixes for examples of specific ways to use
- * Integration Services features within this script component. */
-#endregion
-
-#region Namespaces
-using System;
-using System.Data;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-using Microsoft.SqlServer.Dts.Runtime.Wrapper;
-using SC_6ded6ef434a746b3ad17d597d433a4f8;
-#endregion
-
-/// <summary>
-/// This is the class to which to add your code.  Do not change the name, attributes, or parent
-/// of this class.
-/// </summary>
-[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
-public class ScriptMain : UserComponent
-{
-    #region Help:  Using Integration Services variables and parameters
-    /* To use a variable in this script, first ensure that the variable has been added to
-     * either the list contained in the ReadOnlyVariables property or the list contained in
-     * the ReadWriteVariables property of this script component, according to whether or not your
-     * code needs to write into the variable.  To do so, save this script, close this instance of
-     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
-     * Script Transformation Editor window.
-     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
-     *
-     * Example of reading from a variable or parameter:
-     *  DateTime startTime = Variables.MyStartTime;
-     *
-     * Example of writing to a variable:
-     *  Variables.myStringVariable = "new value";
-     */
-    #endregion
-
-    #region Help:  Using Integration Services Connnection Managers
-    /* Some types of connection managers can be used in this script component.  See the help topic
-     * "Working with Connection Managers Programatically" for details.
-     *
-     * To use a connection manager in this script, first ensure that the connection manager has
-     * been added to either the list of connection managers on the Connection Managers page of the
-     * script component editor.  To add the connection manager, save this script, close this instance of
-     * Visual Studio, and add the Connection Manager to the list.
-     *
-     * If the component needs to hold a connection open while processing rows, override the
-     * AcquireConnections and ReleaseConnections methods.
-     * 
-     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
-     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
-     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
-     *
-     * Example of using a File connection manager to acquire a file path:
-     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
-     *  string filePath = (string)rawConnection;
-     *
-     * Example of releasing a connection manager:
-     *  Connections.SalesDB.ReleaseConnection(rawConnection);
-     */
-    #endregion
-
-    #region Help:  Firing Integration Services Events
-    /* This script component can fire events.
-     *
-     * Example of firing an error event:
-     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
-     *
-     * Example of firing an information event:
-     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
-     *
-     * Example of firing a warning event:
-     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
-     */
-    #endregion
-
-
-    // These global value let to keep in memory the number of operation after a row have been processed
-    public int totalOperation = 0;
-
-
-
-    /// <summary>
-    /// This method is called once, before rows begin to be processed in the data flow.
-    ///
-    /// You can remove this method if you don't need to do anything here.
-    /// </summary>
-    public override void PreExecute()
-    {
-        
-        base.PreExecute();
-        /*
-         * Add your code here
-         */
- 
-    }
-
-    /// <summary>
-    /// This method is called after all the rows have passed through this component.
-    ///
-    /// You can delete this method if you don't need to do anything here.
-    /// </summary>
-    public override void PostExecute()
-    {
-        base.PostExecute();
-        /*
-         * Add your code here
-         */
-    }
-
-    /// <summary>
-    /// This method loop on each row send in the data flow.
-    /// Then it assign each entries variables with a locale one like this:  string shop = Row.strShop
-    /// Where strShop is a column in the data flow
-    /// </summary>
-    /// <param name="Row">The row that is currently passing through the component</param>
-    public override void Entrée0_ProcessInputRow(Entrée0Buffer Row)
-    {
-        // Links columns by variables
-        string shop = Row.strShop;
-        string libelle = Row.strlibelle;
-        string numCompte = Row.strCompte;
-        float priceF = (float) Row.montantF;
-        DateTime dtDate =  Row.DATE;
-
-
-        // This ligne create a objet LigneFormat which is a string with one or 3 lignes.
-        // The content of LigneFormat depend on the values of strShop, strlibelle, strCompte, montantF, the date and total number of operations; 
-        LigneFormat strRow = new LigneFormat(shop, dtDate, numCompte, libelle, priceF, totalOperation);
-
-
-        // These global value will increase after a row have been processed
-        if (totalOperation == 0)
-        {
-            totalOperation += 2;
-        }
-        else
-        {
-            totalOperation += 1;
-        }
-
-
-        // Let to add a new row in the input data flow, then to write the value of LigneFormat in the input column ligneCAX3
-        Sortie0Buffer.AddRow();
-        Sortie0Buffer.ligneCAX3 = strRow.ToString();
-
-    }
-
-    public override void CreateNewOutputRows()
-    {
-        /*
-          Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
-          For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
-        */
-
-       
-    }
-}
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-*  Microsoft SQL Server Integration Services buffer wrappers
-*  This module defines classes for accessing data flow buffers
-*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
-
-
-
-using System;
-using System.Data;
-using Microsoft.SqlServer.Dts.Pipeline;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-
-public class Entrée0Buffer: ScriptBuffer
-
-{
-    public Entrée0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
-        : base(Buffer, BufferColumnIndexes, OutputMap)
-    {
-    }
-
-    public Double montantF
-    {
-        get
-        {
-            return Buffer.GetDouble(BufferColumnIndexes[0]);
-        }
-    }
-    public bool montantF_IsNull
-    {
-        get
-        {
-            return IsNull(0);
-        }
-    }
-
-    public String strCompte
-    {
-        get
-        {
-            return Buffer.GetString(BufferColumnIndexes[1]);
-        }
-    }
-    public bool strCompte_IsNull
-    {
-        get
-        {
-            return IsNull(1);
-        }
-    }
-
-    public String strShop
-    {
-        get
-        {
-            return Buffer.GetString(BufferColumnIndexes[2]);
-        }
-    }
-    public bool strShop_IsNull
-    {
-        get
-        {
-            return IsNull(2);
-        }
-    }
-
-    public DateTime DATE
-    {
-        get
-        {
-            return Buffer.GetDateTime(BufferColumnIndexes[3]);
-        }
-    }
-    public bool DATE_IsNull
-    {
-        get
-        {
-            return IsNull(3);
-        }
-    }
-
-    public String strlibelle
-    {
-        get
-        {
-            return Buffer.GetString(BufferColumnIndexes[4]);
-        }
-    }
-    public bool strlibelle_IsNull
-    {
-        get
-        {
-            return IsNull(4);
-        }
-    }
-
-    new public bool NextRow()
-    {
-        return base.NextRow();
-    }
-
-    new public bool EndOfRowset()
-    {
-        return base.EndOfRowset();
-    }
-
-}
-
-public class Sortie0Buffer: ScriptBuffer
-
-{
-    public Sortie0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
-        : base(Buffer, BufferColumnIndexes, OutputMap)
-    {
-    }
-
-    public String ligneCAX3
-    {
-        set
-        {
-            this[0] = value;
-        }
-    }
-    public bool ligneCAX3_IsNull
-    {
-        set
-        {
-            if (value)
-            {
-                SetNull(0);
-            }
-            else
-            {
-                throw new InvalidOperationException("La propriété IsNull ne peut pas prendre la valeur False. Affectez plutôt une valeur à la colonne.");
-            }
-        }
-    }
-
-    new public void AddRow()
-    {
-        base.AddRow();
-    }
-
-    new public void SetEndOfRowset()
-    {
-        base.SetEndOfRowset();
-    }
-
-    new public bool EndOfRowset()
-    {
-        return base.EndOfRowset();
-    }
-
-}
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Settings.get_Default():SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Sett" +
-    "ings")]
-
-namespace SC_6ded6ef434a746b3ad17d597d433a4f8.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[SC_6ded6ef434a746b3ad17d597d433a4f8.csproj]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B3AB6F3A-1620-4117-ABBA-D868521738A8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SC_6ded6ef434a746b3ad17d597d433a4f8</RootNamespace>
-    <AssemblyName>SC_5BDB27128D9243D9A0116B74CD9A992C</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.TxScript, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Compile Include="LigneFormat.cs" />
-    <Compile Include="main.cs" />
-    <Compile Include="BufferWrapper.cs" />
-    <Compile Include="ComponentWrapper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
-        <Host Name="ScriptComponent" IconIndex="0" />
-        <ProjectClient>
-          <HostIdentifier>SSIS_SC150</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Project]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:DisplayName>
-    <msb:ProjectId>{81739F1A-EA07-46F7-BDEF-3D1114060FC4}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="SC_6ded6ef434a746b3ad17d597d433a4f8.csproj" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="LigneFormat.cs" />
-    <msb:File Include="main.cs" />
-    <msb:File Include="BufferWrapper.cs" />
-    <msb:File Include="ComponentWrapper.cs" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("SC_6ded6ef434a746b3ad17d597d433a4f8")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SC_6ded6ef434a746b3ad17d597d433a4f8")]
-[assembly: AssemblyCopyright("Copyright @  2022")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.0.0")]
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
-    "rceManager")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
-    "fo")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
-    "):Void")]
-
-namespace SC_6ded6ef434a746b3ad17d597d433a4f8.Properties {
-    
-    
-    /// <summary>
-    ///   A strongly-typed resource class, for looking up localized strings, etc.
-    /// </summary>
-    // This class was auto-generated by the StronglyTypedResourceBuilder
-    // class via a tool like ResGen or Visual Studio.
-    // To add or remove a member, edit your .ResX file then rerun ResGen
-    // with the /str option, or rebuild your VS project.
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class Resources {
-        
-        private static global::System.Resources.ResourceManager resourceMan;
-        
-        private static global::System.Globalization.CultureInfo resourceCulture;
-        
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
-        }
-        
-        /// <summary>
-        ///   Returns the cached ResourceManager instance used by this class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if ((resourceMan == null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_6ded6ef434a746b3ad17d597d433a4f8.Properties.Resources", typeof(Resources).Assembly);
-                    resourceMan = temp;
-                }
-                return resourceMan;
-            }
-        }
-        
-        /// <summary>
-        ///   Overrides the current thread's CurrentUICulture property for all
-        ///   resource lookups using this strongly typed resource class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
-            get {
-                return resourceCulture;
-            }
-            set {
-                resourceCulture = value;
-            }
-        }
-    }
-}
-]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[LigneFormat.cs]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SC_6ded6ef434a746b3ad17d597d433a4f8
-{
-    class LigneFormat
-    {
-        // Links columns by variables
-        string shop;
-        string libelle;
-        string nbCpt;
-        int totalOperation;
-        DateTime dtDate;
-
-        // Variables for builder
-        string numOp;
-        string typeOp;
-        int SensOp = 2;
-        string strPrice;
-       // bool negPrice = false;
-        string strFAC;
-        public LigneFormat(string shop,DateTime dtDate, string nbCpt, string libelle, float fltPrice, int totalOperation)
-        {
-            this.shop = shop;
-            this.libelle = libelle;
-            this.nbCpt = nbCpt;
-            this.totalOperation = totalOperation;
-            this.dtDate = dtDate;
-
-
-            // Price is negatif AND Set sens operation
-            if(fltPrice < 0)
-            {
-                fltPrice *= -1;
-                if (nbCpt.Contains("707")){ SensOp = 1;}
-                else{SensOp = -1;}
-            }
-            else {
-                if (nbCpt.Contains("707"))  {SensOp = -1;}
-                else{ SensOp = 1;}
-            }
-
-            strPrice = fltPrice.ToString().Replace(",", ".");
-
-            strFAC = dtDate.ToString("yy, MM, dd");
-            libelle += " " + dtDate.ToString("ddMMyyyy");
-
-            
-        }
-
-        override
-        public string ToString()
-        {
-            string str = "";
-
-            if (totalOperation <= 0){
-                str += "G;;" + shop + ";VTE;" + libelle + ";;EUR\n";
-                totalOperation += 1; 
-           
-            }
-            if (nbCpt.Contains("707"))
-            {
-               
-                str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + nbCpt + ";;" + libelle + ";" + SensOp + ";" + strPrice + ";EUR\n";
-                str += "D;" + totalOperation + ";" + 2 + ";" + shop + ";;" + nbCpt + ";;" + libelle + ";" + SensOp + ";" + strPrice + ";EUR\n";
-                str += "A;" + 1 + ";AX1;1502;AX2;;AX3;" + shop + ";;;;;;;;;;;;;0;"+strPrice ;
-            }
-            else
-            {
-                if (nbCpt.Contains("531000") || nbCpt.Contains("532000") || nbCpt.Contains("533000") || nbCpt.Contains("580000"))
-                {
-                    if (nbCpt.Contains("531000") || nbCpt.Contains("532000") || nbCpt.Contains("533000"))
-                    {
-                        numOp = "411000";
-                        typeOp = nbCpt.Contains("531000") ? shop + "ESP" : nbCpt.Contains("532000") ? shop + "CHQ" : nbCpt.Contains("533000") ? shop + "CB" : "!UNK!";
-                        str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";C1;" + numOp + ";" + typeOp + ";" + libelle + ";" + SensOp + ";" + strPrice + ";EUR";
-
-                    }
-                    else { 
-                        numOp = "467500";
-                        str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + numOp + ";;" + libelle + ";" + SensOp + ";" + strPrice + ";EUR";
-                    }    
-                }
-                else
-                {
-                    str += "D;" + totalOperation + ";" + 1 + ";" + shop + ";;" + nbCpt + ";;" + libelle + ";" + "-1" + ";" + strPrice + ";EUR";
-
-                }
-            }
-            
-            return str;
-        }
-    }
-}
-]]></arrayElement>
-                  </arrayElements>
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Stocke la représentation binaire du composant"
-                  isArray="true"
-                  name="BinaryCode"
-                  state="cdata">
-                  <arrayElements
-                    arrayElementCount="2">
-                    <arrayElement
-                      dataType="System.String"><![CDATA[SC_5BDB27128D9243D9A0116B74CD9A992C.dll]]></arrayElement>
-                    <arrayElement
-                      dataType="System.String"><![CDATA[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
-JQAFACwhAAAAAIYITARQAAUANSEAAAAAhghRBSUABQBKIQAAAACGCGEEUAAFAFMhAAAAAIYIgQDz
-AAUAaCEAAAAAhggSBFAABQBxIQAAAACGCCIBJQAFAIYhAAAAAIYINgRQAAUAjyEAAAAAhgACCFAA
-BQCXIQAAAACGADYHUAAFAO4gAAAAAIYYrwUpAAUAnyEAAAAAhggHABAACACpIQAAAACGCP0D+AAJ
-AMAhAAAAAIYA4gcGAAoAyCEAAAAAhgAzBwYACgCXIQAAAACGADYHUAAKANAhAAAAAIYYrwUGAAoA
-8CEAAAAAxgDJB/0ACgDkIAAAAADGAecGBgAOAEsiAAAAAIEArwAGAA4AaCIAAAAAxgDWBwcBDgDk
-IAAAAADGAfUGBgASALEiAAAAAMYBwAfpABIA5CAAAAAAxgHpB+kAEwDEIgAAAACGGK8FEwEUANMi
-AAAAAIYYrwUTARUA5CIAAAAAhhivBRkBFgC8IwAAAADGAKwDJQAcAMsoAAAAAIMYrwUGABwA0ygA
-AAAAkwibBSQBHAD/KAAAAACTCG0BKQEcAAYpAAAAAJMIeQEuARwADikAAAAAlghCBzQBHQAVKQAA
-AACGGK8FBgAdAB0pAAAAAJEYtQU5AR0AAAABAAYIAAABAJQFAAACAJUGAAADAEcFAAABAJQFAAAC
-AJUGAAADAEcFAAABAIwDAAABAIwDAAABAG0AAAACADEBAAADAJQFAAAEAEcFAAABAO0GAAACALwF
-AAADAN8GAAAEAEcFAAABAJQFAAABAAYIAAABAHIHAAABAHIHAAABAF0FAAACAK0BAAADAHwHAAAE
-ACkBAAAFANQAAAAGAKMEAAABAIwDCQCvBQEAEQCvBQYAGQCvBQoAKQCvBRAAMQCvBRAAOQCvBRAA
-QQCvBRAASQCvBRAAUQCvBRAAWQCvBRAAYQCvBRAAaQCvBQYAoQCvBQYAwQCvBRUA0QCvBQYAkQB1
-AwYAkQCAAwYAmQCsAyUAeQCvBSkAeQCUBTMAeQCVBjcAgQDtADsAeQBtBEAAgQC1A0UAgQA7AUoA
-eQACCFAAeQA2B1AAeQB8BFQAeQB0BAEA2QCvBRAAeQDiBwYAeQAzBwYAkQCvBQYA4QDDBloAkQCp
-BmEAgQAjB1AAkQB1AGsAmQCvBQYA4QDKBnIA8QCsAyUA4QDDAHcAcQCsA30A4QAJB4IA4QAJB44A
-+QCsAyUA4QAJB5QAAQEJAZoAAQEKCKMAqQCvBakAyQCvBQYALgALAF0BLgATAGYBLgAbAIUBLgAj
-AI4BLgArALcBLgAzALcBLgA7ALcBLgBDAI4BLgBLAL0BLgBTALcBLgBbANQBQwBjAB4CIwFrAB4C
-qQFzAIUByQFzAIUBgQJ7AB4CGwBnAIkAAwABAAQACwAJAA0ACgAPAAAAjgA9AQAAJgRBAQAAzQFF
-AQAAUARBAQAAVQVFAQAAZQRBAQAAhQBJAQAAFgRBAQAAJgFFAQAAOgRBAQAACwBFAQAAAQRBAQAA
-nwVOAQAAjQFTAQAARgdYAQIABwADAAIACAAFAAIACQAHAAIACgAJAAIACwALAAIADAANAAIADQAP
-AAIADgARAAIADwATAAIAEAAVAAEAFAAXAAEAFQAZAAIAJgAbAAIAJwAdAAEAKAAdAAIAKQAfAASA
-AAABAAAAAAAAAAAAAAAAAEIAAAAEAAAAAAAAAAAAAACxAJcAAAAAAA8AAAAAAAAAAAAAALoAggcA
-AAAADwAAAAAAAAAAAAAAugCfBwAAAAAEAAAAAAAAAAAAAACxAIUEAAAAAAAAAAABAAAACgYAAAAA
-AEludDMyAHNldF9saWduZUNBWDMAU0NfNmRlZDZlZjQzNGE3NDZiM2FkMTdkNTk3ZDQzM2E0ZjgA
-PE1vZHVsZT4AU0NfNUJEQjI3MTI4RDkyNDNEOUEwMTE2Qjc0Q0Q5QTk5MkMAc3RyRkFDAElucHV0
-SUQAR2V0T3V0cHV0SUQAZ2V0X0RBVEUAZ2V0X21vbnRhbnRGAG1zY29ybGliAElucHV0c0Zpbmlz
-aGVkAE1hcmtPdXRwdXRzRmluaXNoZWQAUmVwbGFjZQBzdHJQcmljZQBmbHRQcmljZQBkZWZhdWx0
-SW5zdGFuY2UAR2V0RG91YmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAFNp
-bmdsZQBnZXRfc3RybGliZWxsZQBJbnB1dE5hbWUAR2V0RGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNl
-cnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1
-bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAZHREYXRlAEVkaXRvckJyb3dzYWJsZVN0YXRl
-AGdldF9zdHJDb21wdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2Vy
-Q29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0
-ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdl
-dEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1i
-bHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFz
-c2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2Ny
-aXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUA
-UnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQB2YWx1
-ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAEdldFN0cmluZwBTeXN0ZW0uQ29t
-cG9uZW50TW9kZWwAU0NfNUJEQjI3MTI4RDkyNDNEOUEwMTE2Qjc0Q0Q5QTk5MkMuZGxsAHNldF9s
-aWduZUNBWDNfSXNOdWxsAGdldF9EQVRFX0lzTnVsbABnZXRfbW9udGFudEZfSXNOdWxsAGdldF9z
-dHJsaWJlbGxlX0lzTnVsbABnZXRfc3RyQ29tcHRlX0lzTnVsbABnZXRfc3RyU2hvcF9Jc051bGwA
-U2V0TnVsbABzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgB0b3RhbE9wZXJh
-dGlvbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVm
-bGVjdGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVy
-ZUluZm8AdHlwZU9wAG51bU9wAFNlbnNPcABPdXRwdXROYW1lTWFwAE91dHB1dE1hcABnZXRfc3Ry
-U2hvcABzaG9wAFNvcnRpZTBCdWZmZXIARW50csOpZTBCdWZmZXIAUGlwZWxpbmVCdWZmZXIAU2Ny
-aXB0QnVmZmVyAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAE91dHB1dElEcwBTeXN0
-ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVz
-b3VyY2VzAFNDXzZkZWQ2ZWY0MzRhNzQ2YjNhZDE3ZDU5N2Q0MzNhNGY4LlByb3BlcnRpZXMuUmVz
-b3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ182ZGVkNmVmNDM0YTc0NmIzYWQxN2Q1
-OTdkNDMzYTRmOC5Qcm9wZXJ0aWVzAFZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENv
-bHVtbkluZGV4ZXMAU2V0dGluZ3MARXF1YWxzAENvbnRhaW5zAENvbm5lY3Rpb25zAEJ1ZmZlcnMA
-RmluaXNoT3V0cHV0cwBDcmVhdGVOZXdPdXRwdXRSb3dzAENvbmNhdABMaWduZUZvcm1hdABPYmpl
-Y3QAZ2V0X0VuZE9mUm93c2V0AFNldEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25l
-bnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABuYkNwdABNaWNyb3NvZnQuU3FsU2Vy
-dmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AEVudHLDqWUwX1By
-b2Nlc3NJbnB1dABQcmltZU91dHB1dABBZGRSb3cARW50csOpZTBfUHJvY2Vzc0lucHV0Um93AE5l
-eHRSb3cAZ2V0X0Fzc2VtYmx5AAAAgMNMAGEAIABwAHIAbwBwAHIAaQDpAHQA6QAgAEkAcwBOAHUA
-bABsACAAbgBlACAAcABlAHUAdAAgAHAAYQBzACAAcAByAGUAbgBkAHIAZQAgAGwAYQAgAHYAYQBs
-AGUAdQByACAARgBhAGwAcwBlAC4AIABBAGYAZgBlAGMAdABlAHoAIABwAGwAdQB0APQAdAAgAHUA
-bgBlACAAdgBhAGwAZQB1AHIAIADgACAAbABhACAAYwBvAGwAbwBuAG4AZQAuAAERRQBuAHQAcgDp
-AGUAIAAwAAERUwBvAHIAdABpAGUAIAAwAAAHNwAwADcAAAMsAAADLgAAFXkAeQAsACAATQBNACwA
-IABkAGQAAAMgAAARZABkAE0ATQB5AHkAeQB5AAABAAdHADsAOwAACzsAVgBUAEUAOwAADTsAOwBF
-AFUAUgAKAAAFRAA7AAADOwAABTsAOwAACzsARQBVAFIACgAABUEAOwAAJzsAQQBYADEAOwAxADUA
-MAAyADsAQQBYADIAOwA7AEEAWAAzADsAAB87ADsAOwA7ADsAOwA7ADsAOwA7ADsAOwA7ADAAOwAA
-DTUAMwAxADAAMAAwAAANNQAzADIAMAAwADAAAA01ADMAMwAwADAAMAAADTUAOAAwADAAMAAwAAAN
-NAAxADEAMAAwADAAAAshAFUATgBLACEAAAVDAEIAAAdDAEgAUQAAB0UAUwBQAAAJOwBDADEAOwAA
-CTsARQBVAFIAAA00ADYANwA1ADAAMAAACTsALQAxADsAAXFTAEMAXwA2AGQAZQBkADYAZQBmADQA
-MwA0AGEANwA0ADYAYgAzAGEAZAAxADcAZAA1ADkANwBkADQAMwAzAGEANABmADgALgBQAHIAbwBw
-AGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAcjj9DOa/6E+x6N7cRMuUPQAEIAEB
-CAMgAAEFIAEBEREEIAEBDgUgAQERXQkHBQ4ODBE5EiADIAAOCSADARJBHQgSRQMGEkEDBh0IBCAB
-DQgEIAECCAQgAQ4IBSABETkIAyAAAgUgAgEIHAYgAgIOEXUFIAEdCAgDBwEIBgACCBJFDgQgAQIO
-BSACDg4OBCABDg4GAAMODg4OBAcCDggFAAEOHQ4FAAIODg4IAAESgIERgIUFIAASgIkHIAIBDhKA
-iQi3elxWGTTgiQiJhF3NgIDMkQIGCAMGEhgDBhIcAwYSEAMGEkkCBg4DBhE5AwYSVQMGElkDBhIo
-BSABARIMAyAADQQgABE5BCABAQIJIAQBCA4SQRJFCyAEAQgdCB0SQRJFBSABARJJCiAGAQ4ROQ4O
-DAgEAAASVQQAABJZBQABARJZBAAAEigDAAABAygADQMoAAIDKAAOBCgAETkECAASVQQIABJZBAgA
-EigIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1ND
-XzZkZWQ2ZWY0MzRhNzQ2YjNhZDE3ZDU5N2Q0MzNhNGY4AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAg
-IDIwMjIAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxh
-eU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVz
-b3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJl
-PW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNl
-cy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAIA/AAAAAAAAAAAAAJo/
-AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMPwAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29y
-ZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQ
-AAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhA
-AADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv
-/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYA
-YQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAA
-ALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAwADQA
-YgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBh
-AG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMA
-XwA2AGQAZQBkADYAZQBmADQAMwA0AGEANwA0ADYAYgAzAGEAZAAxADcAZAA1ADkANwBkADQAMwAz
-AGEANABmADgAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAuADAA
-AABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADUAQgBEAEIAMgA3ADEAMgA4
-AEQAOQAyADQAMwBEADkAQQAwADEAMQA2AEIANwA0AEMARAA5AEEAOQA5ADIAQwAuAGQAbABsAAAA
-SAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABA
-ACAAIAAyADAAMgAyAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAA
-AAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8ANQBCAEQAQgAy
-ADcAMQAyADgARAA5ADIANAAzAEQAOQBBADAAMQAxADYAQgA3ADQAQwBEADkAQQA5ADkAMgBDAC4A
-ZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADYAZABlAGQANgBl
-AGYANAAzADQAYQA3ADQANgBiADMAYQBkADEANwBkADUAOQA3AGQANAAzADMAYQA0AGYAOAAAADQA
-CAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBB
-AHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAArD8AAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
-                  </arrayElements>
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom du projet Microsoft Visual Studio Tools for Applications. Les noms des projets doivent être uniques dans un package."
-                  name="VSTAProjectName"
-                  typeConverter="NOTBROWSABLE">SC_5bdb27128d9243d9a0116b74cd9a992c</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le langage de programmation utilisé par le script."
-                  name="ScriptLanguage"
-                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une liste séparée par des virgules de variables en lecture seule."
-                  name="ReadOnlyVariables"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une liste séparée par des virgules de variables en lecture/écriture."
-                  name="ReadWriteVariables"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
-                <property
-                  dataType="System.String"
-                  description="Liste des points d'arrêt présents dans le script."
-                  isArray="true"
-                  name="BreakpointCollection"
-                  typeConverter="NOTBROWSABLE">
-                  <arrayElements
-                    arrayElementCount="0" />
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Somme de contrôle pour faire correspondre les métadonnées de composant avec les codes compilés."
-                  name="MetadataChecksum140"
-                  typeConverter="NOTBROWSABLE">04</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0]"
-                  hasSideEffects="true"
-                  name="Entrée 0">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0].Columns[montantF]"
-                      cachedDataType="r8"
-                      cachedName="montantF"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[montantF]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0].Columns[strCompte]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="numCompte"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[numCompte]"
-                      name="strCompte" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0].Columns[strShop]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="strShop"
-                      lineageId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée].Columns[strShop]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0].Columns[DATE]"
-                      cachedDataType="date"
-                      cachedName="DATE"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[DATE]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0].Columns[strlibelle]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="strlibelle"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Composant Script.Outputs[Sortie 0]"
-                  hasSideEffects="true"
-                  name="Sortie 0">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Composant Script.Outputs[Sortie 0].Columns[ligneCAX3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8000"
-                      lineageId="Package\format X3 from BookAccount\Composant Script.Outputs[Sortie 0].Columns[ligneCAX3]"
-                      name="ligneCAX3" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Convert from unicode to str"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Conversion de données"
-              name="Convert from unicode to str"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données]"
-                  name="Entrée de conversion de données">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données].Columns[LIBELLE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="LIBELLE"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[LIBELLE]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données].Columns[N° COMPTE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="N° COMPTE"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[N° COMPTE]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données]"
-                  exclusionGroup="1"
-                  name="Sortie de conversion de données"
-                  synchronousInputId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[strlibelle]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[strlibelle]"
-                      name="strlibelle"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[LIBELLE]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[numCompte]"
-                      name="numCompte"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[N° COMPTE]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie d'erreur de conversion de données]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de conversion de données"
-                  synchronousInputId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Destination OLE DB"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="Destination OLE DB"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[pos_account_book]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\format X3 from BookAccount\Destination OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[VMSQL.WD]"
-                  connectionManagerRefId="Package.ConnectionManagers[VMSQL.WD]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[DATE]"
-                      cachedDataType="date"
-                      cachedName="DATE"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[DATE]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[numCompte]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="numCompte"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[numCompte]"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[numCompte]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sumCredit]"
-                      cachedDataType="r8"
-                      cachedName="sumCredit"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[credit]"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumCredit]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sumDebit]"
-                      cachedDataType="r8"
-                      cachedName="sumDebit"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[debit]"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumDebit]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[strlibelle]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="strlibelle"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[libelle]"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[codeBoutique]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="codeBoutique" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
-                      dataType="wstr"
-                      length="10"
-                      name="date" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[piece]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="piece" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      name="numCompte" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[libelle]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="libelle" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[debit]"
-                      dataType="r8"
-                      name="debit" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[credit]"
-                      dataType="r8"
-                      name="credit" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\format X3"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Destination de fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
-              description="Destination de fichier plat"
-              localeId="1036"
-              name="format X3"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Spécifie si les données remplaceront ou seront ajoutées au fichier de destination."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Spécifie le texte à enregistrer sur le fichier de destination avant d'enregistrer des données."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="Quand le qualificateur de texte est activé, spécifie si le qualificateur de texte dans les données écrites dans le fichier de destination va être échappé ou non."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\format X3 from BookAccount\format X3.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[FormatX3]"
-                  connectionManagerRefId="Package.ConnectionManagers[FormatX3]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\format X3.Inputs[Entrée de destination de fichier plat]"
-                  hasSideEffects="true"
-                  name="Entrée de destination de fichier plat">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\format X3.Inputs[Entrée de destination de fichier plat].Columns[ligneCAX3]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8000"
-                      cachedName="ligneCAX3"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\format X3.Inputs[Entrée de destination de fichier plat].ExternalColumns[ligneCAX3]"
-                      lineageId="Package\format X3 from BookAccount\Composant Script.Outputs[Sortie 0].Columns[ligneCAX3]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\format X3.Inputs[Entrée de destination de fichier plat].ExternalColumns[ligneCAX3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8000"
-                      name="ligneCAX3" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\From Book Account"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
-              description="Source Excel"
-              name="From Book Account"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">A$</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [A$] WHERE  DATE = ?</property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable">User::req</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="Mappage des paramètres de la commande SQL en variables."
-                  name="ParameterMapping">"Paramètre0:Input",{3042B2EA-9A99-49DE-A47B-EE34DBE41787};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\format X3 from BookAccount\From Book Account.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[BookAccount]"
-                  connectionManagerRefId="Package.ConnectionManagers[BookAccount]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel]"
-                  name="Sortie de source Excel">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DATE]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[DATE]"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DATE]"
-                      name="DATE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[N° COMPTE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[N° COMPTE]"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[N° COMPTE]"
-                      name="N° COMPTE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[LIBELLE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[LIBELLE]"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[LIBELLE]"
-                      name="LIBELLE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DEBIT]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[DEBIT]"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DEBIT]"
-                      name="DEBIT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[CREDIT]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[CREDIT]"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[CREDIT]"
-                      name="CREDIT"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[DATE]"
-                      dataType="date"
-                      name="DATE" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[PIECE]"
-                      dataType="wstr"
-                      length="255"
-                      name="PIECE" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[N° COMPTE]"
-                      dataType="wstr"
-                      length="255"
-                      name="N° COMPTE" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[LIBELLE]"
-                      dataType="wstr"
-                      length="255"
-                      name="LIBELLE" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[DEBIT]"
-                      dataType="r8"
-                      name="DEBIT" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].ExternalColumns[CREDIT]"
-                      dataType="r8"
-                      name="CREDIT" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source Excel">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[DATE]"
-                      dataType="date"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[DATE]"
-                      name="DATE" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[N° COMPTE]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[N° COMPTE]"
-                      name="N° COMPTE" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[LIBELLE]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[LIBELLE]"
-                      name="LIBELLE" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[DEBIT]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[DEBIT]"
-                      name="DEBIT" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[CREDIT]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[CREDIT]"
-                      name="CREDIT" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Multidiffusion"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
-              name="Multidiffusion">
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Multidiffusion.Inputs[Multidiffusion entrée 1]"
-                  name="Multidiffusion entrée 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
-                  deleteOutputOnPathDetached="true"
-                  name="Sortie de multidiffusion 1"
-                  synchronousInputId="Package\format X3 from BookAccount\Multidiffusion.Inputs[Multidiffusion entrée 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
-                  deleteOutputOnPathDetached="true"
-                  name="Sortie de multidiffusion 2"
-                  synchronousInputId="Package\format X3 from BookAccount\Multidiffusion.Inputs[Multidiffusion entrée 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\Multidiffusion.Outputs[Sortie de multidiffusion 3]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Sortie de multidiffusion 3"
-                  synchronousInputId="Package\format X3 from BookAccount\Multidiffusion.Inputs[Multidiffusion entrée 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Source OLE DB"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="Source OLE DB"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[pos_account_book]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM dbo.pos_account_book WHERE codeBoutique =? AND DATE = ?</property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping">"Paramètre0:Input",{0016139B-E68B-4895-B6C0-2B8B9A026B06};"Paramètre1:Input",{DEB5CE18-B2F2-496C-8C22-AEBD6929E36A};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\format X3 from BookAccount\Source OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[VMSQL.WD]"
-                  connectionManagerRefId="Package.ConnectionManagers[VMSQL.WD]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
-                      name="id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeBoutique]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeBoutique]"
-                      length="3"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeBoutique]"
-                      name="codeBoutique"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
-                      length="10"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
-                      name="date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[piece]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[piece]"
-                      length="50"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[piece]"
-                      name="piece"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numCompte]"
-                      length="25"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numCompte]"
-                      name="numCompte"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[libelle]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[libelle]"
-                      length="50"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[libelle]"
-                      name="libelle"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[debit]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[debit]"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[debit]"
-                      name="debit"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[credit]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[credit]"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[credit]"
-                      name="credit"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeBoutique]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="codeBoutique" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
-                      dataType="wstr"
-                      length="10"
-                      name="date" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[piece]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="piece" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      name="numCompte" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[libelle]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="libelle" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[debit]"
-                      dataType="r8"
-                      name="debit" />
-                    <externalMetadataColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[credit]"
-                      dataType="r8"
-                      name="credit" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
-                      name="id" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeBoutique]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeBoutique]"
-                      name="codeBoutique" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
-                      name="date" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[piece]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[piece]"
-                      name="piece" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numCompte]"
-                      name="numCompte" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[libelle]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[libelle]"
-                      name="libelle" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[debit]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[debit]"
-                      name="debit" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[credit]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[credit]"
-                      name="credit" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\format X3 from BookAccount\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\format X3 from BookAccount\Sum credit and debit by Compte"
-              componentClassID="Microsoft.Aggregate"
-              contactInfo="Agrégation;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
-              description="Agrège des données avec des fonctions telles que Moyenne, Somme, Nombre, Max.et Min. Par exemple, regroupez des données pour calculer la somme des ventes par produit ou la moyenne des visites par jour."
-              name="Sum credit and debit by Compte"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
-                  name="KeyScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
-                  name="Keys" />
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le nombre approximatif de valeurs distinctes totalisé distinctement par l'agrégation dans une colonne. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur CountDistinctScale n'est utilisée."
-                  name="CountDistinctScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Spécifie le nombre exact de valeurs distinctes totalisées distinctement par l'agrégation dans une colonne. Si une valeur CountDistinctScale est spécifiée, la valeur dans CountDistinctKeys est prioritaire."
-                  name="CountDistinctKeys" />
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage possible d'extension de la mémoire pendant l'agrégation. Les valeurs valides vont de 1 à 100."
-                  name="AutoExtendFactor">25</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1]"
-                  name="Entrée d'agrégation 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1].Columns[CREDIT]"
-                      cachedDataType="r8"
-                      cachedName="CREDIT"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[CREDIT]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1].Columns[DEBIT]"
-                      cachedDataType="r8"
-                      cachedName="DEBIT"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DEBIT]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1].Columns[strlibelle]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="strlibelle"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[strlibelle]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1].Columns[DATE]"
-                      cachedDataType="date"
-                      cachedName="DATE"
-                      lineageId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DATE]" />
-                    <inputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1].Columns[numCompte]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="numCompte"
-                      lineageId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[numCompte]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1]"
-                  name="Sortie d'agrégation 1">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
-                      name="KeyScale"
-                      typeConverter="KeyScaleType">0</property>
-                    <property
-                      dataType="System.Null"
-                      description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
-                      name="Keys" />
-                  </properties>
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[DATE]"
-                      dataType="date"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[DATE]"
-                      name="DATE">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
-                          name="AggregationColumnId">#{Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DATE]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie le type d'agrégation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison de chaînes."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[numCompte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[numCompte]"
-                      name="numCompte">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
-                          name="AggregationColumnId">#{Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[numCompte]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie le type d'agrégation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison de chaînes."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[strlibelle]"
-                      name="strlibelle">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
-                          name="AggregationColumnId">#{Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données].Columns[strlibelle]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie le type d'agrégation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison de chaînes."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumCredit]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumCredit]"
-                      name="sumCredit">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
-                          name="AggregationColumnId">#{Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[CREDIT]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie le type d'agrégation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">4</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison de chaînes."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumDebit]"
-                      dataType="r8"
-                      lineageId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1].Columns[sumDebit]"
-                      name="sumDebit">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
-                          name="AggregationColumnId">#{Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel].Columns[DEBIT]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie le type d'agrégation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">4</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison de chaînes."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie 0]"
-              endId="Package\format X3 from BookAccount\format X3.Inputs[Entrée de destination de fichier plat]"
-              name="Sortie 0"
-              startId="Package\format X3 from BookAccount\Composant Script.Outputs[Sortie 0]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie d'agrégation 1]"
-              endId="Package\format X3 from BookAccount\Add New Columns.Inputs[Entrée de colonne dérivée]"
-              name="Sortie d'agrégation 1"
-              startId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Outputs[Sortie d'agrégation 1]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie de colonne dérivée]"
-              endId="Package\format X3 from BookAccount\Multidiffusion.Inputs[Multidiffusion entrée 1]"
-              name="Sortie de colonne dérivée"
-              startId="Package\format X3 from BookAccount\Add New Columns.Outputs[Sortie de colonne dérivée]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie de conversion de données]"
-              endId="Package\format X3 from BookAccount\Sum credit and debit by Compte.Inputs[Entrée d'agrégation 1]"
-              name="Sortie de conversion de données"
-              startId="Package\format X3 from BookAccount\Convert from unicode to str.Outputs[Sortie de conversion de données]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie de multidiffusion 1]"
-              endId="Package\format X3 from BookAccount\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de multidiffusion 1"
-              startId="Package\format X3 from BookAccount\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie de multidiffusion 2]"
-              endId="Package\format X3 from BookAccount\Composant Script.Inputs[Entrée 0]"
-              name="Sortie de multidiffusion 2"
-              startId="Package\format X3 from BookAccount\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
-            <path
-              refId="Package\format X3 from BookAccount.Paths[Sortie de source Excel]"
-              endId="Package\format X3 from BookAccount\Convert from unicode to str.Inputs[Entrée de conversion de données]"
-              name="Sortie de source Excel"
-              startId="Package\format X3 from BookAccount\From Book Account.Outputs[Sortie de source Excel]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\script"
@@ -8441,11 +5948,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="207,42"
           Id="Package\envoi vers datawarehouse"
-          TopLeft="853.5,484.25" />
-        <NodeLayout
-          Size="228,42"
-          Id="Package\Foreach file in folder\Move the file in Archives folder"
-          TopLeft="820.5,86.75" />
+          TopLeft="431.5,383.25" />
         <NodeLayout
           Size="248,42"
           Id="Package\Foreach file in folder\Create lstmodele and Send Inserts"
@@ -8465,6 +5968,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Size="160,42"
           Id="Package\Foreach file in folder\Get ALL lstdates"
           TopLeft="64,100.75" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Foreach file in folder\Move the file in Archives folder"
+          TopLeft="702.5,103.75" />
         <EdgeLayout
           Id="Package\Foreach file in folder.PrecedenceConstraints[Contrainte 1]"
           TopLeft="146.25,60">
@@ -8511,30 +6018,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="654,123.5">
+          TopLeft="654,124.125">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="166.5,-15.75"
+              EndConnector="48.5,0"
               Start="0,0"
-              End="159,-15.75">
+              End="41,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="79.25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="79.25,0"
-                    Point2="83.25,0"
-                    Point3="83.25,-4" />
-                  <mssgle:LineSegment
-                    End="83.25,-11.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="83.25,-11.75"
-                    Point2="83.25,-15.75"
-                    Point3="87.25,-15.75" />
-                  <mssgle:LineSegment
-                    End="159,-15.75" />
+                    End="41,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8546,18 +6041,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1055,256"
-          Size="1055,299"
+          PanelSize="981,256"
+          Size="981,299"
           Id="Package\Foreach file in folder"
-          TopLeft="272.5,104" />
-        <NodeLayout
-          Size="219,42"
-          Id="Package\format X3 from BookAccount"
-          TopLeft="386,506.25" />
+          TopLeft="31.5,46" />
         <NodeLayout
           Size="105,42"
           Id="Package\script"
-          TopLeft="675.75,525.25" />
+          TopLeft="242.75,386.25" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -8740,7 +6231,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach file in folder\Create lstmodele and Send Inserts\Book account xls">
+    design-time-name="Package\Foreach file in folder\Create lstmodele and Send Inserts\Send To dbo pos account book">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8753,7 +6244,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach file in folder\Create lstmodele and Send Inserts\Send To dbo pos account book">
+    design-time-name="Package\Foreach file in folder\Create lstmodele and Send Inserts\Book account xls">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8775,13 +6266,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Sum credit and debit by Compte"
           TopLeft="55,183" />
         <NodeLayout
-          Size="171,42"
+          Size="230,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\pos_account_book"
-          TopLeft="95,19" />
+          TopLeft="67,19" />
         <NodeLayout
           Size="143,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Multidiffusion"
-          TopLeft="635,134" />
+          TopLeft="385,255" />
         <NodeLayout
           Size="240,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Convert from unicode to str"
@@ -8789,41 +6280,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="166,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Composant Script"
-          TopLeft="666,28" />
+          TopLeft="380,100" />
         <NodeLayout
-          Size="170,42"
+          Size="238,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Add New Columns"
-          TopLeft="610,239" />
+          TopLeft="51,257" />
         <NodeLayout
           Size="127,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\format X3"
-          TopLeft="857,25" />
+          TopLeft="642,97" />
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book.Paths[Sortie de multidiffusion 2]"
-          TopLeft="706.5,134">
+          TopLeft="459.75,255">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.5,-64"
+              EndConnector="0,-113"
               Start="0,0"
-              End="42.5,-56.5">
+              End="0,-105.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-28"
-                    Point2="0,-32"
-                    Point3="4,-32" />
-                  <mssgle:LineSegment
-                    End="38.5,-32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="38.5,-32"
-                    Point2="42.5,-32"
-                    Point3="42.5,-36" />
-                  <mssgle:LineSegment
-                    End="42.5,-56.5" />
+                    End="0,-105.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8856,30 +6335,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book.Paths[Sortie de colonne dérivée]"
-          TopLeft="695,239">
+          TopLeft="289,277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.5,-63"
+              EndConnector="96,0"
               Start="0,0"
-              End="11.5,-55.5">
+              End="88.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-27.5"
-                    Point2="0,-31.5"
-                    Point3="4,-31.5" />
-                  <mssgle:LineSegment
-                    End="7.5,-31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.5,-31.5"
-                    Point2="11.5,-31.5"
-                    Point3="11.5,-35.5" />
-                  <mssgle:LineSegment
-                    End="11.5,-55.5" />
+                    End="88.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8890,30 +6357,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book.Paths[Sortie d'agrégation 1]"
-          TopLeft="291,204">
+          TopLeft="171.5,225">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="319,56"
+              EndConnector="0,32"
               Start="0,0"
-              End="311.5,56">
+              End="0,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="155.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="155.5,0"
-                    Point2="159.5,0"
-                    Point3="159.5,4" />
-                  <mssgle:LineSegment
-                    End="159.5,52" />
-                  <mssgle:CubicBezierSegment
-                    Point1="159.5,52"
-                    Point2="159.5,56"
-                    Point3="163.5,56" />
-                  <mssgle:LineSegment
-                    End="311.5,56" />
+                    End="0,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8924,18 +6379,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book.Paths[Sortie 0]"
-          TopLeft="832,47.5">
+          TopLeft="546,119.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25,0"
+              EndConnector="96,0"
               Start="0,0"
-              End="17.5,0">
+              End="88.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="17.5,0" />
+                    End="88.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8946,7 +6401,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book.Paths[Sortie de source OLE DB]"
-          TopLeft="179.75,61">
+          TopLeft="180.5,61">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8976,317 +6431,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\format X3 from BookAccount">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="143,42"
-          Id="Package\format X3 from BookAccount\Multidiffusion"
-          TopLeft="708,236" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\format X3 from BookAccount\format X3"
-          TopLeft="743,37" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\format X3 from BookAccount\Source OLE DB"
-          TopLeft="334,47" />
-        <NodeLayout
-          Size="236,42"
-          Id="Package\format X3 from BookAccount\Sum credit and debit by Compte"
-          TopLeft="293,153" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\format X3 from BookAccount\From Book Account"
-          TopLeft="33,42" />
-        <NodeLayout
-          Size="240,42"
-          Id="Package\format X3 from BookAccount\Convert from unicode to str"
-          TopLeft="26,135" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\format X3 from BookAccount\Add New Columns"
-          TopLeft="439,248" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\format X3 from BookAccount\Composant Script"
-          TopLeft="681,128" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\format X3 from BookAccount\Destination OLE DB"
-          TopLeft="1060,151" />
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie d'agrégation 1]"
-          TopLeft="411,195">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="113,53"
-              Start="0,0"
-              End="113,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="109,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="109,26.5"
-                    Point2="113,26.5"
-                    Point3="113,30.5" />
-                  <mssgle:LineSegment
-                    End="113,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie 0]"
-          TopLeft="764,128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42.5,-49"
-              Start="0,0"
-              End="42.5,-41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-20.5"
-                    Point2="0,-24.5"
-                    Point3="4,-24.5" />
-                  <mssgle:LineSegment
-                    End="38.5,-24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="38.5,-24.5"
-                    Point2="42.5,-24.5"
-                    Point3="42.5,-28.5" />
-                  <mssgle:LineSegment
-                    End="42.5,-41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie de source Excel]"
-          TopLeft="148,84">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie de multidiffusion 2]"
-          TopLeft="760.5,236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,-66"
-              Start="0,0"
-              End="0,-58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie de multidiffusion 1]"
-          TopLeft="802,236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="346.5,-43"
-              Start="0,0"
-              End="346.5,-35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-13.4854771784232" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-13.4854771784232"
-                    Point2="0,-17.4854771784232"
-                    Point3="4,-17.4854771784232" />
-                  <mssgle:LineSegment
-                    End="342.5,-17.4854771784232" />
-                  <mssgle:CubicBezierSegment
-                    Point1="342.5,-17.4854771784232"
-                    Point2="346.5,-17.4854771784232"
-                    Point3="346.5,-21.4854771784232" />
-                  <mssgle:LineSegment
-                    End="346.5,-35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie de conversion de données]"
-          TopLeft="266,156">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27,18"
-              Start="0,0"
-              End="19.5,18">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="9.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.5,0"
-                    Point2="13.5,0"
-                    Point3="13.5,4" />
-                  <mssgle:LineSegment
-                    End="13.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,14"
-                    Point2="13.5,18"
-                    Point3="17.5,18" />
-                  <mssgle:LineSegment
-                    End="19.5,18" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\format X3 from BookAccount.Paths[Sortie de colonne dérivée]"
-          TopLeft="609,269">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="99,-12"
-              Start="0,0"
-              End="91.5,-12">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45.5,0"
-                    Point2="49.5,0"
-                    Point3="49.5,-4" />
-                  <mssgle:LineSegment
-                    End="49.5,-8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.5,-8"
-                    Point2="49.5,-12"
-                    Point3="53.5,-12" />
-                  <mssgle:LineSegment
-                    End="91.5,-12" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\format X3 from BookAccount\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\format X3 from BookAccount\From Book Account">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\format X3 from BookAccount\Destination OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
