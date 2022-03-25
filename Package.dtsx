@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1110"
-  DTS:VersionGUID="{32A2CF42-3808-4568-83CF-88FEBC82B1FA}">
+  DTS:VersionBuild="1129"
+  DTS:VersionGUID="{4DDA9AC7-9886-46F9-B372-3C4CD0817843}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -356,6 +356,7 @@ HDR=YES\";"</DTS:PropertyExpression>
           DTS:refId="Package\Foreach file in folder\Create lstmodele and Send Inserts"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Tâche de flux de données"
+          DTS:Disabled="True"
           DTS:DTSID="{ec646d59-3502-4a13-b0c1-b0c1bc57a116}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -2161,7 +2162,7 @@ namespace SC_6ded6ef434a746b3ad17d597d433a4f8.Properties {
     <msb:CodeName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_6ded6ef434a746b3ad17d597d433a4f8</msb:DisplayName>
-    <msb:ProjectId>{2BCECC12-727A-4A3A-BC54-7748111A132C}</msb:ProjectId>
+    <msb:ProjectId>{FFBAE23E-4458-44A5-B69A-B305916CB854}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_6ded6ef434a746b3ad17d597d433a4f8.csproj" />
@@ -2450,7 +2451,7 @@ namespace SC_6ded6ef434a746b3ad17d597d433a4f8
                             <arrayElement
                               dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAMi6OWIAAAAAAAAAAOAAIiALATAAACYAAAAIAAAAAAAA9kQA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAG6dPWIAAAAAAAAAAOAAIiALATAAACYAAAAIAAAAAAAA9kQA
 AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAKREAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2608,7 +2609,7 @@ ADMAMwAwADAAMAAADTQAMQAxADAAMAAwAAALIQBVAE4ASwAhAAAFQwBCAAAHQwBIAFEAAAdFAFMA
 UAAACTsAQwAxADsAABU7ADsANAA2ADcANQAwADAAOwA7AAAJDQAKAEQAOwAACTsALQAxADsAAQ07
 AEUAVQBSAAoADQAAcVMAQwBfADYAZABlAGQANgBlAGYANAAzADQAYQA3ADQANgBiADMAYQBkADEA
 NwBkADUAOQA3AGQANAAzADMAYQA0AGYAOAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBv
-AHUAcgBjAGUAcwAAPyXoiER+d02xPP+O7fyLKgAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERXQ4H
+AHUAcgBjAGUAcwAAQQmwToYF5E2kDq46v5QsbgAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERXQ4H
 Cg4ODgwMETkSIA4IDAQgAQIOAyAACAMgAA4EIAEODgUAAQ4dDgUAAgIODgkgAwESQR0IEkUDBhJB
 AwYdCAQgAQ0IBCABAggEIAEOCAUgARE5CAMgAAIFIAIBCBwGIAICDhF9BSABHQgIAwcBCAYAAggS
 RQ4FIAIODg4EBwIOCAUAAg4ODggAARKAgRGAhQUgABKAiQcgAgEOEoCJCLd6XFYZNOCJCImEXc2A
@@ -3628,35 +3629,41 @@ public class ScriptMain : UserComponent
         // Variables to fix account 758000 and 658000
         float ecart758 = (float)Row.ecart758;
         float ecart658 = (float)Row.ecart658;
-        double ecart445715 = 0;
-        double ecart707001 = 0;
+        double ecart445715_758 = 0;
+        double ecart707001_758 = 0;
+        double ecart445715_658 = 0;
+        double ecart707001_658 = 0;
 
-  
         if (ecart758 != 0)
         {
-            ecart445715 = ecart758 / 1.055;
-            ecart707001 = ecart445715 * 0.055;
+            ecart707001_758 = (float)Math.Round(ecart758 / 1.055,2);
+            ecart445715_758 = ecart758 - ecart707001_758;
+       
         }
         if (ecart658 != 0)
         {
-            ecart445715 = - ecart658 / 1.055;
-            ecart707001 = - ecart445715 * 0.055;
+            ecart707001_658 = -(float)Math.Round((ecart658 / 1.055), 2);
+            ecart445715_658 = - (ecart658 - ecart707001_658) ;
+           
         }
 
         // TVAs
         if (strFormatX3.Contains(";707001;"))
         {
-            fltPrice = fltPrice - ecartHT1 + (float)Math.Round(ecart445715, 2);   
-            strFormatX3 = strFormatX3.Replace(strPrice, fltPrice.ToString().Replace(",", ".").Replace("-", ""));
+            fltPrice = fltPrice - ecartHT1 + (float)ecart707001_758 + (float)ecart707001_658;   
+            strFormatX3 = strFormatX3.Replace(strPrice, fltPrice.ToString().Replace(",", ".**").Replace("-", ""));
         }
         if (strFormatX3.Contains(";445715;"))
         {
-            fltPrice = fltPrice + ecartHT1 + (float)Math.Round(ecart707001, 2);
-            strFormatX3 = strFormatX3.Replace(strPrice, fltPrice.ToString().Replace(",", ".").Replace("-", ""));
+            fltPrice = fltPrice + ecartHT1 + (float)ecart445715_758 + (float)ecart445715_658;
+            strFormatX3 = strFormatX3.Replace(strPrice, fltPrice.ToString().Replace(",", ".**").Replace("-", ""));
         }
+
+
+
         if (strFormatX3.Contains(";707000;") )
         {
-            fltPrice = fltPrice - ecartHT0;
+            fltPrice = fltPrice - ecartHT0  ;
             strFormatX3 = strFormatX3.Replace(strPrice, fltPrice.ToString().Replace(",", ".").Replace("-", ""));
         }
 
@@ -4006,7 +4013,7 @@ public class Sortie0Buffer: ScriptBuffer
     <msb:CodeName>SC_83b52817493f4145a0e3700da1e3c44e</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_83b52817493f4145a0e3700da1e3c44e</msb:DisplayName>
-    <msb:ProjectId>{F7DED122-25D4-4967-A22C-6533455C6044}</msb:ProjectId>
+    <msb:ProjectId>{F6B32A0B-F3D4-41D2-8D68-F9D8871D7B2A}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_83b52817493f4145a0e3700da1e3c44e.csproj" />
@@ -4153,129 +4160,129 @@ namespace SC_83b52817493f4145a0e3700da1e3c44e.Properties {
                             <arrayElement
                               dataType="System.String"><![CDATA[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
-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
+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
-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
+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
-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
+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
-LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABc
-OQAAAAAAAEgAAAACAAUA2CQAAJgTAAABAAAAAAAAAHA4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAUA0gEAAAEAABEDbwcAAAYK
+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
-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
-hhhzBQYAAgBIIgAAAACGGHMFPAACAFMiAAAAAIYIGQEyAAUAaCIAAAAAhghEBF0ABQBxIgAAAACG
-CAEAzAAFAIYiAAAAAIYIzANdAAUAjyIAAAAAhgiwADIABQCkIgAAAACGCBwEXQAFAK0iAAAAAIYI
-vQDMAAUAwiIAAAAAhggwBF0ABQDLIgAAAACGCA4AzAAFAOAiAAAAAIYI4ANdAAUA6SIAAAAAhggo
-AMwABQD+IgAAAACGCAgEXQAFAAcjAAAAAIYIGwDMAAUAHCMAAAAAhgj0A10ABQAlIwAAAACGALoH
-XQAFAC0jAAAAAIYA5wZdAAUASCIAAAAAhhhzBTwABQA1IwAAAACGCJQHEAAIAD8jAAAAAIYIWATQ
-AAkAViMAAAAAhgCNBwYACgBeIwAAAACGAOQGBgAKAC0jAAAAAIYA5wZdAAoAZiMAAAAAhhhzBQYA
-CgCIIwAAAADGAHQH1QAKAD4iAAAAAMYBqwYGAA4A4yMAAAAAgQCOAAYADgAAJAAAAADGAIEH3wAO
-AD4iAAAAAMYBuQYGABIASSQAAAAAxgFrB8YAEgA+IgAAAADGAaEHxgATAFwkAAAAAIYYcwXrABQA
-ayQAAAAAhhhzBesAFQB6JAAAAACDGHMFBgAWAIIkAAAAAJMIXwXxABYAriQAAAAAkwhMAfYAFgC1
-JAAAAACTCFgB+wAWAL0kAAAAAJYI8wYBARcAxCQAAAAAhhhzBQYAFwDMJAAAAACRGHkFBgEXAAAA
-AQC+BwAAAQBYBQAAAgBZBgAAAwAcBQAAAQBYBQAAAgBZBgAAAwAcBQAAAQBWAwAAAQBWAwAAAQBi
-AAAAAgAPAQAAAwBYBQAABAAcBQAAAQCxBgAAAgCABQAAAwCjBgAABAAcBQAAAQBYBQAAAQC+BwAA
-AQAjBwAAAQAjBwAAAQBWAwkAcwUBABEAcwUGABkAcwUKACkAcwUQADEAcwUQADkAcwUQAEEAcwUQ
-AEkAcwUQAFEAcwUQAFkAcwUQAGEAcwUQAGkAcwUGAJkAcwUGALkAcwUVAMkAcwUGAIkAPwMGAIkA
-SgMGANEAjgYnANkAogAsAOEAdgMyANEAqAA2AHEAcwU8AHEAWAVGAHEAWQZKAHkAfwNOAHEAZQRT
-AHkA2gBYAHEAugddAHEA5wZdAHEAdARhAHEAbAQBAOkAcwUQAHEAjQcGAHEA5AYGAIkAcwUGANEA
-hwZnAIkAbQZuAHkA1AZdAIkAagB4AJEAcwUGAPkA9gB/APkAwgeHAKEAcwWNAMEAcwUGAC4ACwAl
-AS4AEwAuAS4AGwBNAS4AIwBWAS4AKwB/AS4AMwB/AS4AOwB/AS4AQwBWAS4ASwCFAS4AUwB/AS4A
-WwCcAUMAYwDmAQMBawDmASEBewDmASkCcwBNAUkCcwBNARsAdAADAAEABAAPAAgAEQAJABMAAAAd
-AQoBAABIBA4BAAAFABIBAADQAw4BAAC0AAoBAAAgBA4BAADBABIBAAA0BA4BAAASABIBAADkAw4B
-AAAsABIBAAAMBA4BAAAfABIBAAD4Aw4BAACYBwoBAABcBA4BAABjBRYBAABsARsBAAD3BiABAgAH
-AAMAAgAIAAUAAgAJAAcAAgAKAAkAAgALAAsAAgAMAA0AAgANAA8AAgAOABEAAgAPABMAAgAQABUA
-AgARABcAAgASABkAAgATABsAAgAUAB0AAQAYAB8AAQAZACEAAgAoACMAAgApACUAAQAqACUAAgAr
-ACcABIAAAAEAAAAAAAAAAAAAAAAANQAAAAQAAAAAAAAAAAAAAJUAdgAAAAAADwAAAAAAAAAAAAAA
-ngAtBwAAAAAPAAAAAAAAAAAAAACeAEoHAAAAAAQAAAAAAAAAAAAAAJUAfQQAAAAAAAAAAAEAAADO
-BQAAAAAAZ2V0X2VjYXJ0SFQwAGdldF9lY2FydEhUMQBnZXRfZWNhcnQ2NTgAZ2V0X2VjYXJ0NzU4
-AFNDXzI0MUNFMzc4RjQ5QzQ1MUVCRUUxMURBNjU1MEY1REI5ADxNb2R1bGU+AElucHV0SUQAR2V0
-T3V0cHV0SUQAbXNjb3JsaWIASW5wdXRzRmluaXNoZWQATWFya091dHB1dHNGaW5pc2hlZABSb3Vu
-ZABSZXBsYWNlAGdldF9zdHJQcmljZQBnZXRfZmx0UHJpY2UAZGVmYXVsdEluc3RhbmNlAEdldERv
-dWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBTaW5nbGUASW5wdXROYW1l
-AGdldF9zdHJMaWduZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBUeXBlAGdldF9D
-dWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBBcHBsaWNhdGlvblNldHRpbmdzQmFz
-ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dl
-ck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxl
-QXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1
-dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0
-ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRy
-aWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRl
-AFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0
-dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQcmVFeGVjdXRlAFBvc3RFeGVj
-dXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcAR2V0U3RyaW5nAE1h
-dGgAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNDXzI0MUNFMzc4RjQ5QzQ1MUVCRUUxMURBNjU1MEY1
-REI5LmRsbABnZXRfZWNhcnRIVDBfSXNOdWxsAGdldF9lY2FydEhUMV9Jc051bGwAZ2V0X2VjYXJ0
-NjU4X0lzTnVsbABnZXRfZWNhcnQ3NThfSXNOdWxsAGdldF9zdHJQcmljZV9Jc051bGwAZ2V0X2Zs
-dFByaWNlX0lzTnVsbABnZXRfc3RyTGlnbmVfSXNOdWxsAHNldF9maW5hbFJvd19Jc051bGwAU2V0
-TnVsbABzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmln
-dXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBJbnZhbGlkT3Bl
-cmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1h
-cABPdXRwdXRNYXAAU29ydGllMEJ1ZmZlcgBFbnRyw6llMEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBT
-Y3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgAuY3RvcgAuY2N0b3IAT3V0cHV0SURzAFN5
-c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5S
-ZXNvdXJjZXMAU0NfODNiNTI4MTc0OTNmNDE0NWEwZTM3MDBkYTFlM2M0NGUuUHJvcGVydGllcy5S
-ZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzgzYjUyODE3NDkzZjQxNDVhMGUz
-NzAwZGExZTNjNDRlLlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZlckNvbHVtbkluZGV4ZXMAR2V0
-Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29udGFpbnMAQ29ubmVjdGlvbnMAQnVmZmVy
-cwBGaW5pc2hPdXRwdXRzAENyZWF0ZU5ld091dHB1dFJvd3MAT2JqZWN0AGdldF9FbmRPZlJvd3Nl
-dABTZXRFbmRPZlJvd3NldABnZXRfRGVmYXVsdABVc2VyQ29tcG9uZW50AFBhcmVudENvbXBvbmVu
-dABTY3JpcHRDb21wb25lbnQATWljcm9zb2Z0LlNxbFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQu
-U3FsU2VydmVyLlBpcGVsaW5lSG9zdABFbnRyw6llMF9Qcm9jZXNzSW5wdXQAUHJpbWVPdXRwdXQA
-QWRkUm93AHNldF9maW5hbFJvdwBFbnRyw6llMF9Qcm9jZXNzSW5wdXRSb3cATmV4dFJvdwBnZXRf
-QXNzZW1ibHkAAAAROwA3ADAANwAwADAAMQA7AAADLAAAAy4AAAMtAAEBABE7ADQANAA1ADcAMQA1
-ADsAABE7ADcAMAA3ADAAMAAwADsAABE7ADQANAA1ADcAMQAzADsAAIDDTABhACAAcAByAG8AcABy
-AGkA6QB0AOkAIABJAHMATgB1AGwAbAAgAG4AZQAgAHAAZQB1AHQAIABwAGEAcwAgAHAAcgBlAG4A
-ZAByAGUAIABsAGEAIAB2AGEAbABlAHUAcgAgAEYAYQBsAHMAZQAuACAAQQBmAGYAZQBjAHQAZQB6
-ACAAcABsAHUAdAD0AHQAIAB1AG4AZQAgAHYAYQBsAGUAdQByACAA4AAgAGwAYQAgAGMAbwBsAG8A
-bgBuAGUALgABEUUAbgB0AHIA6QBlACAAMAABEVMAbwByAHQAaQBlACAAMAAAcVMAQwBfADgAMwBi
-ADUAMgA4ADEANwA0ADkAMwBmADQAMQA0ADUAYQAwAGUAMwA3ADAAMABkAGEAMQBlADMAYwA0ADQA
-ZQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAAAFw7MH5V4iQbwP
-h0/YFW2hAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFZCwcJDg4MDAwMDA0NBCABAg4FAAINDQgD
-IAAOBSACDg4OCSADARI9HQgSQQMGEj0DBh0IBCABDggEIAECCAQgAQ0IAyAAAgUgAgEIHAYgAgIO
-EXkFIAEdCAgDBwEIBgACCBJBDgcAARJ9EYCBBSAAEoCFByACAQ4SgIUIt3pcVhk04IkIiYRdzYCA
-zJEDBhIYAwYSHAMGEhACBggDBhJFAwYSUQMGElUDBhIkBSABARIMAyAADQQgAQECCSAEAQgOEj0S
-QQsgBAEIHQgdEj0SQQUgAQESRQQAABJRBAAAElUFAAEBElUEAAASJAMAAAEDKAAOAygAAgMoAA0E
-CAASUQQIABJVBAgAEiQIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEA
-AgAAAAAAKAEAI1NDXzgzYjUyODE3NDkzZjQxNDVhMGUzNzAwZGExZTNjNDRlAAAFAQAAAAAWAQAR
-Q29weXJpZ2h0IEAgIDIwMjIAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJh
-bWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEAAAAAtAAAAM7K774BAAAAkQAA
-AGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAu
-MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lz
-dGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAFA5
-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
+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
+BUgAcQBZBkwAeQB/A1AAcQBlBFUAeQDaAFoAcQC6B18AcQDnBl8AcQB0BGMAcQBsBAEA6QBzBRAA
+cQCNBwYAcQDkBgYAiQBzBQYA2QCHBmkAiQBtBnAAeQDUBl8AiQBqAHoAkQBzBQYA+QD2AIEA+QDC
+B4kAoQBzBY8AwQBzBQYALgALACcBLgATADABLgAbAE8BLgAjAFgBLgArAIEBLgAzAIEBLgA7AIEB
+LgBDAFgBLgBLAIcBLgBTAIEBLgBbAJ4BQwBjAOgBAwFrAOgBIQF7AOgBKQJzAE8BSQJzAE8BGwB2
+AAMAAQAEAA8ACAARAAkAEwAAAB0BDAEAAEgEEAEAAAUAFAEAANADEAEAALQADAEAACAEEAEAAMEA
+FAEAADQEEAEAABIAFAEAAOQDEAEAACwAFAEAAAwEEAEAAB8AFAEAAPgDEAEAAJgHDAEAAFwEEAEA
+AGMFGAEAAGwBHQEAAPcGIgECAAcAAwACAAgABQACAAkABwACAAoACQACAAsACwACAAwADQACAA0A
+DwACAA4AEQACAA8AEwACABAAFQACABEAFwACABIAGQACABMAGwACABQAHQABABgAHwABABkAIQAC
+ACgAIwACACkAJQABACoAJQACACsAJwAEgAAAAQAAAAAAAAAAAAAAAAA1AAAABAAAAAAAAAAAAAAA
+lwB2AAAAAAAPAAAAAAAAAAAAAACgAC0HAAAAAA8AAAAAAAAAAAAAAKAASgcAAAAABAAAAAAAAAAA
+AAAAlwB9BAAAAAAAAAAAAQAAAM4FAAAAAABnZXRfZWNhcnRIVDAAZ2V0X2VjYXJ0SFQxAGdldF9l
+Y2FydDY1OABnZXRfZWNhcnQ3NTgAU0NfMjQxQ0UzNzhGNDlDNDUxRUJFRTExREE2NTUwRjVEQjkA
+PE1vZHVsZT4ASW5wdXRJRABHZXRPdXRwdXRJRABtc2NvcmxpYgBJbnB1dHNGaW5pc2hlZABNYXJr
+T3V0cHV0c0ZpbmlzaGVkAFJvdW5kAFJlcGxhY2UAZ2V0X3N0clByaWNlAGdldF9mbHRQcmljZQBk
+ZWZhdWx0SW5zdGFuY2UAR2V0RG91YmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFu
+ZGxlAFNpbmdsZQBJbnB1dE5hbWUAZ2V0X3N0ckxpZ25lAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRz
+LlBpcGVsaW5lAFR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAEFw
+cGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJh
+dGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJp
+YnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3Nl
+bWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlD
+b25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGls
+YXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1i
+bHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1
+dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRl
+AFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBU
+b1N0cmluZwBHZXRTdHJpbmcATWF0aABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfMjQxQ0UzNzhG
+NDlDNDUxRUJFRTExREE2NTUwRjVEQjkuZGxsAGdldF9lY2FydEhUMF9Jc051bGwAZ2V0X2VjYXJ0
+SFQxX0lzTnVsbABnZXRfZWNhcnQ2NThfSXNOdWxsAGdldF9lY2FydDc1OF9Jc051bGwAZ2V0X3N0
+clByaWNlX0lzTnVsbABnZXRfZmx0UHJpY2VfSXNOdWxsAGdldF9zdHJMaWduZV9Jc051bGwAc2V0
+X2ZpbmFsUm93X0lzTnVsbABTZXROdWxsAHNldF9JdGVtAFN5c3RlbQByZXNvdXJjZU1hbgBTY3Jp
+cHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5S
+ZWZsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24AU3RyaW5nQ29tcGFyaXNvbgBDdWx0
+dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcABTb3J0aWUwQnVmZmVyAEVudHLDqWUwQnVm
+ZmVyAFBpcGVsaW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5jdG9y
+AC5jY3RvcgBPdXRwdXRJRHMAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBp
+bGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ184M2I1MjgxNzQ5M2Y0MTQ1YTBlMzcwMGRh
+MWUzYzQ0ZS5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU0Nf
+ODNiNTI4MTc0OTNmNDE0NWEwZTM3MDBkYTFlM2M0NGUuUHJvcGVydGllcwBWYXJpYWJsZXMAQnVm
+ZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFNldHRpbmdzAEVxdWFscwBDb250YWlu
+cwBDb25uZWN0aW9ucwBCdWZmZXJzAEZpbmlzaE91dHB1dHMAQ3JlYXRlTmV3T3V0cHV0Um93cwBP
+YmplY3QAZ2V0X0VuZE9mUm93c2V0AFNldEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21w
+b25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVy
+LlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AEVudHLDqWUwX1Byb2Nl
+c3NJbnB1dABQcmltZU91dHB1dABBZGRSb3cAc2V0X2ZpbmFsUm93AEVudHLDqWUwX1Byb2Nlc3NJ
+bnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQAAABE7ADcAMAA3ADAAMAAxADsAAAMsAAAHLgAq
+ACoAAAMtAAEBABE7ADQANAA1ADcAMQA1ADsAABE7ADcAMAA3ADAAMAAwADsAAAMuAAAROwA0ADQA
+NQA3ADEAMwA7AACAw0wAYQAgAHAAcgBvAHAAcgBpAOkAdADpACAASQBzAE4AdQBsAGwAIABuAGUA
+IABwAGUAdQB0ACAAcABhAHMAIABwAHIAZQBuAGQAcgBlACAAbABhACAAdgBhAGwAZQB1AHIAIABG
+AGEAbABzAGUALgAgAEEAZgBmAGUAYwB0AGUAegAgAHAAbAB1AHQA9AB0ACAAdQBuAGUAIAB2AGEA
+bABlAHUAcgAgAOAAIABsAGEAIABjAG8AbABvAG4AbgBlAC4AARFFAG4AdAByAOkAZQAgADAAARFT
+AG8AcgB0AGkAZQAgADAAAHFTAEMAXwA4ADMAYgA1ADIAOAAxADcANAA5ADMAZgA0ADEANAA1AGEA
+MABlADMANwAwADAAZABhADEAZQAzAGMANAA0AGUALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBl
+AHMAbwB1AHIAYwBlAHMAAAAAMy36Kfc4AkSL3sdpvkenJgAEIAEBCAMgAAEFIAEBEREEIAEBDgUg
+AQERWQ0HCw4ODAwMDAwNDQ0NBQACDQ0IBCABAg4DIAAOBSACDg4OCSADARI9HQgSQQMGEj0DBh0I
+BCABDggEIAECCAQgAQ0IAyAAAgUgAgEIHAYgAgIOEXkFIAEdCAgDBwEIBgACCBJBDgcAARJ9EYCB
+BSAAEoCFByACAQ4SgIUIt3pcVhk04IkIiYRdzYCAzJEDBhIYAwYSHAMGEhACBggDBhJFAwYSUQMG
+ElUDBhIkBSABARIMAyAADQQgAQECCSAEAQgOEj0SQQsgBAEIHQgdEj0SQQUgAQESRQQAABJRBAAA
+ElUFAAEBElUEAAASJAMAAAEDKAAOAygAAgMoAA0ECAASUQQIABJVBAgAEiQIAQAIAAAAAAAeAQAB
+AFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDXzgzYjUyODE3NDkzZjQx
+NDVhMGUzNzAwZGExZTNjNDRlAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjIAAEkBABouTkVU
+RnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFt
+ZXdvcmsgNC43BAEAAAAAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3Vy
+Y2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNv
+dXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAcDkAAAAAAAAAAAAAijkAAAAgAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAHw5AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8l
+ACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
 AFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
@@ -4303,7 +4310,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAfDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAnDkAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -4971,7 +4978,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               DTS:LocaleID="-1"
               DTS:ObjectName="get ecarts"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -5036,50 +5043,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Foreach file in folder\Foreach day in file\get to fix prices"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Tâche d'exécution de requêtes SQL"
-              DTS:Disabled="True"
-              DTS:DTSID="{50AF0D55-05D3-43E0-9F73-EACA995FBC0B}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="get to fix prices"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{29674C6F-8955-4FCA-8599-034E28EEB0C0}"
-                  SQLTask:SqlStatementSource="SELECT  numCompte, sum(debit), sum(credit) &#xA;FROM pos_account_book&#xA;WHERE numCompte IN ('58000000', '758000', '658000') AND date =? AND codeBoutique=?&#xA;GROUP BY numCompte"
-                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-                  <SQLTask:ResultBinding
-                    SQLTask:ResultName="1"
-                    SQLTask:DtsVariableName="User::sumGiftCard" />
-                  <SQLTask:ResultBinding
-                    SQLTask:ResultName="2"
-                    SQLTask:DtsVariableName="User::sumEcart758" />
-                  <SQLTask:ResultBinding
-                    SQLTask:ResultName="3"
-                    SQLTask:DtsVariableName="User::sumEcart658" />
-                  <SQLTask:ResultBinding
-                    SQLTask:ResultName="0"
-                    SQLTask:DtsVariableName="User::nbAccount" />
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="pdate"
-                    SQLTask:DtsVariableName="User::strDate"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="133"
-                    SQLTask:ParameterSize="23" />
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="pshop"
-                    SQLTask:DtsVariableName="User::shop"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="129"
-                    SQLTask:ParameterSize="3" />
-                </SQLTask:SqlTaskData>
-              </DTS:ObjectData>
-            </DTS:Executable>
-            <DTS:Executable
               DTS:refId="Package\Foreach file in folder\Foreach day in file\get to fix prices 58"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -5122,12 +5085,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               DTS:LocaleID="-1"
               DTS:ObjectName="get to fix prices 65"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{29674C6F-8955-4FCA-8599-034E28EEB0C0}"
-                  SQLTask:SqlStatementSource="SELECT sum(debit) FROM pos_account_book WHERE numCompte= '658000' AND date =? AND codeBoutique=?"
+                  SQLTask:SqlStatementSource="SELECT sum(debit) FROM pos_account_book WHERE numCompte = '658000' AND date =? AND codeBoutique=?"
                   SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ResultBinding
                     SQLTask:ResultName="0"
@@ -5156,12 +5119,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               DTS:LocaleID="-1"
               DTS:ObjectName="get to fix prices 75"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{29674C6F-8955-4FCA-8599-034E28EEB0C0}"
-                  SQLTask:SqlStatementSource="SELECT sum(debit) FROM pos_account_book WHERE numCompte= '758000' AND date =? AND codeBoutique=?"
+                  SQLTask:SqlStatementSource="SELECT sum(credit)  FROM pos_account_book WHERE numCompte= '758000' AND date =? AND codeBoutique=?"
                   SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ResultBinding
                     SQLTask:ResultName="0"
@@ -5214,14 +5177,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               DTS:From="Package\Foreach file in folder\Foreach day in file\get to fix prices 65"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Contrainte 3"
-              DTS:To="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book" />
-            <DTS:PrecedenceConstraint
-              DTS:refId="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 5]"
-              DTS:CreationName=""
-              DTS:DTSID="{E04F78F9-A2B3-45C7-8E37-CFA59C8AF28A}"
-              DTS:From="Package\Foreach file in folder\Foreach day in file\get to fix prices"
-              DTS:LogicalAnd="True"
-              DTS:ObjectName="Contrainte 5"
               DTS:To="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book" />
           </DTS:PrecedenceConstraints>
           <DTS:ForEachVariableMappings>
@@ -5309,6 +5264,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\Foreach file in folder\Move the file in Archives folder"
           DTS:CreationName="Microsoft.FileSystemTask"
           DTS:Description="Tâche de système de fichiers"
+          DTS:Disabled="True"
           DTS:DTSID="{951ab263-55f2-4583-88dd-9d1a21de52b2}"
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
@@ -5402,41 +5358,79 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="139,42"
           Id="Package\Foreach file in folder\Foreach day in file\get ecarts"
-          TopLeft="71,6" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Foreach file in folder\Foreach day in file\get to fix prices"
-          TopLeft="26,49" />
+          TopLeft="35,22" />
         <NodeLayout
           Size="162,42"
           Id="Package\Foreach file in folder\Foreach day in file\get to fix prices 58"
-          TopLeft="228,10" />
+          TopLeft="184,25" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Foreach file in folder\Foreach day in file\get to fix prices 65"
+          TopLeft="371,150" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Foreach file in folder\Foreach day in file\get to fix prices 75"
+          TopLeft="367,31" />
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte]"
-          TopLeft="309,52">
+          TopLeft="265,67">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.75,130.5"
+              EndConnector="-50.25,115.5"
               Start="0,0"
-              End="-30.75,123">
+              End="-50.25,108">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,82.1234256926952" />
+                    End="0,53.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,82.1234256926952"
-                    Point2="0,86.1234256926952"
-                    Point3="-4,86.1234256926952" />
+                    Point1="0,53.75"
+                    Point2="0,57.75"
+                    Point3="-4,57.75" />
                   <mssgle:LineSegment
-                    End="-26.75,86.1234256926952" />
+                    End="-46.25,57.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-26.75,86.1234256926952"
-                    Point2="-30.75,86.1234256926952"
-                    Point3="-30.75,90.1234256926952" />
+                    Point1="-46.25,57.75"
+                    Point2="-50.25,57.75"
+                    Point3="-50.25,61.75" />
                   <mssgle:LineSegment
-                    End="-30.75,123" />
+                    End="-50.25,108" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="451,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-172.75,109.5"
+              Start="0,0"
+              End="-172.75,102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.264483627204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,68.264483627204"
+                    Point2="0,72.264483627204"
+                    Point3="-4,72.264483627204" />
+                  <mssgle:LineSegment
+                    End="-168.75,72.264483627204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-168.75,72.264483627204"
+                    Point2="-172.75,72.264483627204"
+                    Point3="-172.75,76.264483627204" />
+                  <mssgle:LineSegment
+                    End="-172.75,102" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5447,30 +5441,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="140.5,48">
+          TopLeft="104.5,64">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.25,134.5"
+              EndConnector="46.75,118.5"
               Start="0,0"
-              End="74.25,127">
+              End="46.75,111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.25" />
+                    End="0,74.2040302267003" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,63.25"
-                    Point2="0,67.25"
-                    Point3="4,67.25" />
+                    Point1="0,74.2040302267003"
+                    Point2="0,78.2040302267003"
+                    Point3="4,78.2040302267003" />
                   <mssgle:LineSegment
-                    End="70.25,67.25" />
+                    End="42.75,78.2040302267003" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.25,67.25"
-                    Point2="74.25,67.25"
-                    Point3="74.25,71.25" />
+                    Point1="42.75,78.2040302267003"
+                    Point2="46.75,78.2040302267003"
+                    Point3="46.75,82.2040302267003" />
                   <mssgle:LineSegment
-                    End="74.25,127" />
+                    End="46.75,111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5479,102 +5473,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="102.5,91">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48.75,91.5"
-              Start="0,0"
-              End="48.75,84">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.3853904282116" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.3853904282116"
-                    Point2="0,60.3853904282116"
-                    Point3="4,60.3853904282116" />
-                  <mssgle:LineSegment
-                    End="44.75,60.3853904282116" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.75,60.3853904282116"
-                    Point2="48.75,60.3853904282116"
-                    Point3="48.75,64.3853904282116" />
-                  <mssgle:LineSegment
-                    End="48.75,84" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Foreach file in folder\Foreach day in file\get to fix prices 75"
-          TopLeft="359,83" />
-        <EdgeLayout
-          Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="443,125">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-152.05,57.5"
-              Start="0,0"
-              End="-152.05,50">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5409041980624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.5409041980624"
-                    Point2="0,40.5409041980624"
-                    Point3="-4,40.5409041980624" />
-                  <mssgle:LineSegment
-                    End="-148.05,40.5409041980624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-148.05,40.5409041980624"
-                    Point2="-152.05,40.5409041980624"
-                    Point3="-152.05,44.5409041980624" />
-                  <mssgle:LineSegment
-                    End="-152.05,50" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Foreach file in folder\Foreach day in file\get to fix prices 65"
-          TopLeft="356,242" />
         <EdgeLayout
           Id="Package\Foreach file in folder\Foreach day in file.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="356,263">
+          TopLeft="371,171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-141.25,-38.5"
+              EndConnector="-25.25,32.5"
               Start="0,0"
-              End="-141.25,-31">
+              End="-17.75,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-137.25,0" />
+                    End="-8.625,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-137.25,0"
-                    Point2="-141.25,0"
-                    Point3="-141.25,-4" />
+                    Point1="-8.625,0"
+                    Point2="-12.625,0"
+                    Point3="-12.625,4" />
                   <mssgle:LineSegment
-                    End="-141.25,-31" />
+                    End="-12.625,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.625,28.5"
+                    Point2="-12.625,32.5"
+                    Point3="-16.625,32.5" />
+                  <mssgle:LineSegment
+                    End="-17.75,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5589,7 +5513,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           PanelSize="550,372"
           Size="550,415"
           Id="Package\Foreach file in folder\Foreach day in file"
-          TopLeft="404,25" />
+          TopLeft="372,23" />
         <NodeLayout
           Size="160,42"
           Id="Package\Foreach file in folder\Get ALL lstdates"
@@ -5668,26 +5592,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="87.5,-73.3333333333333"
+              EndConnector="55.5,-75.3333333333333"
               Start="0,0"
-              End="80,-73.3333333333333">
+              End="48,-75.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="48.2983677388382,0" />
+                    End="29.172107537206,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.2983677388382,0"
-                    Point2="52.2983677388382,0"
-                    Point3="52.2983677388382,-4" />
+                    Point1="29.172107537206,0"
+                    Point2="33.172107537206,0"
+                    Point3="33.172107537206,-4" />
                   <mssgle:LineSegment
-                    End="52.2983677388382,-69.3333333333333" />
+                    End="33.172107537206,-71.3333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="52.2983677388382,-69.3333333333333"
-                    Point2="52.2983677388382,-73.3333333333333"
-                    Point3="56.2983677388382,-73.3333333333333" />
+                    Point1="33.172107537206,-71.3333333333333"
+                    Point2="33.172107537206,-75.3333333333333"
+                    Point3="37.172107537206,-75.3333333333333" />
                   <mssgle:LineSegment
-                    End="80,-73.3333333333333" />
+                    End="48,-75.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5698,30 +5622,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach file in folder.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="404,300.333333333333">
+          TopLeft="372,298.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-84.5,105.416666666667"
+              EndConnector="-52.5,107.416666666667"
               Start="0,0"
-              End="-77,105.416666666667">
+              End="-45,107.416666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-29.9947191550648,0" />
+                    End="-17.1209793566971,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.9947191550648,0"
-                    Point2="-33.9947191550648,0"
-                    Point3="-33.9947191550648,4" />
+                    Point1="-17.1209793566971,0"
+                    Point2="-21.1209793566971,0"
+                    Point3="-21.1209793566971,4" />
                   <mssgle:LineSegment
-                    End="-33.9947191550648,101.416666666667" />
+                    End="-21.1209793566971,103.416666666667" />
                   <mssgle:CubicBezierSegment
-                    Point1="-33.9947191550648,101.416666666667"
-                    Point2="-33.9947191550648,105.416666666667"
-                    Point3="-37.9947191550648,105.416666666667" />
+                    Point1="-21.1209793566971,103.416666666667"
+                    Point2="-21.1209793566971,107.416666666667"
+                    Point3="-25.1209793566971,107.416666666667" />
                   <mssgle:LineSegment
-                    End="-77,105.416666666667" />
+                    End="-45,107.416666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5815,7 +5739,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-8,5.25,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5839,7 +5763,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-8,7.25,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5863,7 +5787,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-8,17.75,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5900,7 +5824,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="240,42"
           Id="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\Convert from unicode to str"
@@ -6048,7 +5972,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="38.75,5,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6070,7 +5996,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-8,-45.75,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6142,5 +6070,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach file in folder\Foreach day in file\FormatX3 from dbo pos account book\pos_account_book">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
