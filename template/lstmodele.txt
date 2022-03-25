@@ -1,1 +1,0 @@
-codeBoutique;date;piece;numCompte;libelle;debit;credit
